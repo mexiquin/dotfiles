@@ -15,10 +15,9 @@ set $mod Mod4
 set $primary_color #272A34
 set $secondary_color #FFD86E
 
-# Volume changing configuration for dunst
+# Volume changing configuration for dunst (Commented out to allow MATE to take over vol notification)
 #set $dunstVolDir ~/.config/dunst/volCTL.sh
 #set $dunstBrightDir ~/.config/dunst/brightCTL.sh
-
 #bindsym XF86AudioRaiseVolume exec --no-startup-id $dunstVolDir up
 #bindsym XF86AudioLowerVolume exec --no-startup-id $dunstVolDir down
 #bindsym XF86AudioMute exec --no-startup-id $dunstVolDir mute
