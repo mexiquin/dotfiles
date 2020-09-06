@@ -11,6 +11,11 @@
 
 set $mod Mod4
 
+# color vars
+set $primary_color #272A34
+set $secondary_color #FFD86E
+
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango: SF Pro Text Bold 9
@@ -47,7 +52,7 @@ bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show run -lines 5 -color-window $primary_color -color-active $secondary_color
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec rofi -modi drun,run -show drun
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -174,10 +179,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# color vars
-set $primary_color #272A34
-set $secondary_color #FFD86E
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
