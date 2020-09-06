@@ -180,3 +180,10 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+exec_always picom -f
+
+for_window [class="^.*"] border pixel 2
+
+gaps inner 7
+gaps outer 7
