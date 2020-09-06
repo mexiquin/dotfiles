@@ -36,7 +36,7 @@ yay -S ttf-menlo-powerline-git
 # full arch-based linux setup
 function yayinstall {
 # apt apps that need to be installed
-AppList=(rofi dunst tlp tree neofetch neovim zsh git curl powertop wget xfce4-terminal variety visual-studio-code-bin remmina gpick i3-gaps i3status)
+AppList=(picom otf-san-francisco ttf-menlo-powerline-git dconf-editor grub-customizer rofi dunst tlp tree neofetch neovim zsh git curl powertop wget xfce4-terminal variety visual-studio-code-bin remmina gpick i3-gaps i3status)
 
 for app in "${AppList[@]}"
 do
