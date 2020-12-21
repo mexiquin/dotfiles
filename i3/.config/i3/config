@@ -24,11 +24,11 @@ set $secondary_color #FFD86E
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: SF Pro Text Bold 9
+font pango: JetbrainsMono 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 8
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -41,6 +41,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# add pulseaudio tray icon
+exec --no-startup-id pasystray
+
 # Use pactl to adjust volume in PulseAudio.
 #set $refresh_i3status killall -SIGUSR1 i3status
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -50,6 +53,9 @@ exec --no-startup-id nm-applet
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# set the wallpaper to the last selected
+exec --no-startup-id "nitrogen --restore &"
 
 # start a terminal
 bindsym $mod+Return exec xfce4-terminal
@@ -212,3 +218,8 @@ gaps outer 7
 
 # change the window colors
 client.focused #F6CA52 #F6CA52 #ffffff $secondary_color $primary_color
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound

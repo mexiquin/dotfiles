@@ -1,0 +1,220 @@
+#!/usr/bin/env bash
+
+# Allows for making bold + colored text output
+shopt -s expand_aliases # allow aliases
+bold="\e[1;36m"
+close="\e[0m"
+alias printclr='echo -e'
+ProgName=$(basename $0)
+
+# Small reminder, Don't forget to update the help with any new commands you make
+
+sub_help() {
+    echo "Usage: $ProgName <subcommand> [options]"
+    echo "Subcommands:"
+    printclr "    ${bold}zshcustom${close}      Install zsh-syntax-highlighting and zsh-autosuggestions. Then provide text to add to .zshrc"
+    printclr "    ${bold}insbrew${close}        Install homebrew to system"
+    printclr "    ${bold}inssanfran${close}     Install San Francisco fonts"
+    printclr "    ${bold}inscursor${close}      Install Mac OSX Mod cursor theme"
+    printclr "    ${bold}inspyenv${close}       Install pyenv"
+    printclr "    ${bold}debinstall${close}     Install all default programs for a deb-based install"
+    printclr "    ${bold}insmenlo${close}       Install the menlo monospace font"
+    printclr "    ${bold}insjetbrains${close}   Install the jetbrains monospace font"
+    printclr "    ${bold}ohmyzsh${close}        Install Oh My ZSH"
+    printclr "    ${bold}termtheme${close}      Use gogh to change terminal theme"
+    printclr "    ${bold}xfcesuper${close}      Enable super-key for opening whiskermenu"
+    printclr "    ${bold}insqogir${close}       Install Qogir-win-dark theme"
+    printclr "    ${bold}debiandl${close}       Download Debian to desgnated folder (or Downloads by default)"
+    # printclr "    ${bold}baz${close}   Run baz"   Extra for future commands
+    echo ""
+    echo "For help with each subcommand run:"
+    echo "$ProgName <subcommand> -h|--help"
+    echo ""
+}
+
+# install zsh plugins (zsh autosuggestions and zsh syntax highlighting
+sub_zshcustom() {
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+    echo -e "Dont forget to add:\n${bold}zsh-syntax-highlighting zsh-autosuggestions${close}\nto zshrc"
+}
+
+# Install homebrew
+sub_insbrew() {
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+}
+
+# install the san francisco fonts
+sub_inssanfran() {
+    cd ~/Downloads || exit
+    git clone "https://github.com/AppleDesignResources/SanFranciscoFont.git"
+    if [ ! -d ~/.fonts ]; then
+        mkdir ~/.fonts
+    fi
+    mv ~/Downloads/SanFranciscoFont/ ~/.fonts
+    cd || exit
+}
+
+# install the mac cursor to .icons
+sub_inscursor() {
+    #replace="El Capitan"
+    #fileDir=/usr/share/icons/default/index.theme
+
+    cd ~/Downloads || exit
+    git clone https://github.com/douglascomim/MacOSMOD.git
+
+    if [ ! -d ~/.icons ]; then
+        mkdir ~/.icons
+    fi
+
+    mv ~/Downloads/MacOSMOD/ ~/.icons/
+    cd || exit
+
+    # change the default cursor to El Capitan
+    #sudo sed "s/Inherits=.*/${replace}/g" $fileDir
+}
+
+# Install menlo font
+sub_insmenlo() {
+    cd ~/Downloads || exit
+    git clone "https://github.com/abertsch/Menlo-for-Powerline.git"
+    if [ ! -d ~/.fonts ]; then
+        mkdir .fonts
+    fi
+    mv ~/Downloads/Menlo-for-Powerline/ ~/.fonts/
+    cd || exit
+}
+
+# pyenv setup (install zsh first
+sub_inspyenv() {
+    # install pyenv
+    if [ ! -d ~/.pyenv ]; then
+        sudo apt install -y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+        curl https://pyenv.run | bash
+    fi
+}
+
+# full debian-based linux setup
+sub_debinstall() {
+    # apt apps that need to be installed
+    AppList=(tlp
+        tlp-rdw
+        tree
+        neofetch
+        neovim
+        zsh
+        git
+        curl
+        powertop
+        wget
+        vlc
+        tmux
+        sshfs
+        ssh
+        build-essential
+        gdebi
+        gvfs-backends
+        gvfs-common
+        ffmpeg
+        synaptic
+        font-manager
+        flatpak)
+
+    sudo apt update
+    sudo apt install ${AppList[*]} -y
+
+    # add flathub repository 
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+}
+
+sub_termtheme() {
+    # change terminal colors with gogh
+    bash -c "$(wget -qO- https://git.io/vQgMr)"
+
+    printclr "The theme that works best with Qogir is ${bold}palenight${close}"
+}
+
+sub_ohmyzsh() {
+    # install oh my zsh
+    if [ ! -d ~/.oh-my-zsh ] && [ -x "$(command -v zsh)" ]; then
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    else
+        printclr "Either ${bold}Oh My ZSH${close} or ${bold}ZSH${close} itself is not installed. Please install before continuing"
+    fi
+}
+
+sub_xfcesuper() {
+    # install dependencies
+    sudo apt install git gcc make libx11-dev libxtst-dev pkg-config
+    # clone ksuperkey
+    cd $HOME/Downloads || exit
+    git clone https://github.com/hanschen/ksuperkey.git
+    cd ksuperkey || exit
+    make
+    sudo make install
+    cd ../
+    rm -rf ksuperkey
+
+    printclr "Ensure ${bold}ALT+F1${close} is the whiskermenu binding"
+    printclr "Add ${bold}/usr/bin/ksuperkey${close} to startup applications"
+}
+
+sub_insqogir() {
+    themeGit=https://github.com/vinceliuice/Qogir-theme.git
+    iconthemeGit=https://github.com/vinceliuice/Qogir-icon-theme.git
+    dl_dir=$HOME/Downloads
+
+    cd $dl_dir || exit
+
+    git clone $themeGit
+    git clone $iconthemeGit
+
+    # Install qogir theme
+    cd Qogir-theme || exit
+    ./install.sh -t standard -l debian -c dark -w square
+    cd $dl_dir
+
+    #install qogir icon theme
+    cd Qogir-icon-theme || exit
+    ./install.sh
+    cd $dl_dir || exit
+}
+
+sub_debiandl() {
+    # Download debian iso using wget
+    cd $HOME/Downloads || exit
+
+    echo $1
+
+    if [ -z "$1" ]; then
+        wget "https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/10.6.0+nonfree/amd64/iso-dvd/firmware-10.6.0-amd64-DVD-1.iso"
+    else
+        wget -P $1 "https://cdimage.debian.org/images/unofficial/non-free/images-including-firmware/10.6.0+nonfree/amd64/iso-dvd/firmware-10.6.0-amd64-DVD-1.iso"
+    fi
+}
+
+sub_insjetbrains() {
+    dl_dir=$HOME/Downloads
+
+    cd $dl_dir
+    wget "https://download.jetbrains.com/fonts/JetBrainsMono-2.001.zip"
+    unzip JetBrainsMono-2.001.zip
+    cp -r ttf/* ~/.fonts/
+}
+
+subcommand=$1
+case $subcommand in
+"" | "-h" | "--help")
+    sub_help
+    ;;
+*)
+    shift
+    sub_${subcommand} $@
+    if [ $? = 127 ]; then
+        echo "Error: '$subcommand' is not a known subcommand." >&2
+        echo "       Run '$ProgName --help' for a list of known subcommands." >&2
+        exit 1
+    fi
+    ;;
+esac
