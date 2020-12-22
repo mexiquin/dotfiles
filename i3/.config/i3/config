@@ -40,7 +40,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-
+exec --no-startup-id blueman-applet
 # add pulseaudio tray icon
 exec --no-startup-id pasystray
 
@@ -194,21 +194,23 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-
-   colors {
-	background $primary_color
-	statusline #eeeeee
-	separator #666666
+#bar {
+#        status_command i3status
+#
+#   colors {
+#	background $primary_color
+#	statusline #eeeeee
+#	separator #666666
 	#                   border  backgr. text
-	focused_workspace  #4c7899 $secondary_color #272A34
-	#active_workspace   #333333 #FFD86E #ffffff
+
+# focused_workspace  #4c7899 $secondary_color #272A34
+
+# active_workspace   #333333 #FFD86E #ffffff
 	#inactive_workspace #333333 #222222 #888888
 	#urgent_workspace   #2f343a #900000 #ffffff
-	}
-}
-
+#	}
+#}
+exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always picom -f
 
 for_window [class="^.*"] border pixel 2
@@ -220,6 +222,9 @@ gaps outer 7
 client.focused #F6CA52 #F6CA52 #ffffff $secondary_color $primary_color
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+#bindsym XF86AudioRaiseVolume exec $HOME/.config/dunst/volCTL.sh up
+#bindsym XF86AudioLowerVolume exec $HOME/.config/dunst/volCTL down
+#bindsym XF86AudioMute exec $HOME/.config/dunst/volCTL.sh mute
