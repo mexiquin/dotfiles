@@ -98,4 +98,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval "$(pyenv init -)"
+# force default colorscheme on new term creation
+(cat ~/.cache/wal/sequences &)
+
+# Rbenv configuration
+path+=$HOME/.rbenv/bin
+path+=$HOME/.rbenc/shims
+

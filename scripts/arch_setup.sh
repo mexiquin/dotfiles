@@ -10,7 +10,7 @@ yay -S otf-san-francisco
 
 # install the mac cursor to .icons
 function inscursor {
-cd ~/Downloads
+cd ~/Downloads || exit
 git clone https://github.com/douglascomim/MacOSMOD.git
 
 if [ ! -d ~/.icons ]; then
@@ -18,7 +18,7 @@ mkdir ~/.icons
 fi
 
 mv ~/Downloads/MacOSMOD/ ~/.icons/
-cd
+cd || exit
 }
 
 # install zsh plugins (zsh autosuggestions and zsh syntax highlighting
@@ -36,7 +36,7 @@ yay -S ttf-menlo-powerline-git
 # full arch-based linux setup
 function yayinstall {
 # apt apps that need to be installed
-AppList=(picom otf-san-francisco ttf-menlo-powerline-git dconf-editor grub-customizer rofi dunst tlp tree neofetch neovim zsh git curl powertop wget xfce4-terminal variety visual-studio-code-bin remmina gpick i3-gaps i3status)
+AppList=(picom otf-san-francisco ttf-menlo-powerline-git python-pywal dconf-editor grub-customizer rofi dunst tlp tree neofetch neovim zsh git curl powertop wget xfce4-terminal alacritty variety visual-studio-code-bin remmina gpick polybar)
 
 for app in "${AppList[@]}"
 do
