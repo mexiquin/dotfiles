@@ -1,8 +1,8 @@
 [Configuration]
-ColorForeground=#ebdbb2
-ColorBackground=#282828
-ColorCursor=#ebdbb2
-ColorPalette=#282828;#cc241d;#98971a;#d79921;#458588;#b16286;#689d6a;#a89984;#928374;#fb4934;#b8bb26;#fabd2f;#83a598;#d3869b;#8ec07c;#ebdbb2
+ColorForeground=#BFC7D5
+ColorBackground=#292D3E
+ColorCursor=#BFC7D5
+ColorPalette=#292D3E;#F07178;#C3E88D;#FFCB6B;#82AAFF;#C792EA;#60ADEC;#ABB2BF;#959DCB;#F07178;#C3E88D;#FF5572;#82AAFF;#FFCB6B;#676E95;#FFFEFE
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
@@ -32,4 +32,5 @@ MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=TRUE
 ColorCursorUseDefault=FALSE
 FontName=Menlo for Powerline 14
+FontUseSystem=TRUE
 
