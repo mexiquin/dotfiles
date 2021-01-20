@@ -423,4 +423,4 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-exec_always --no-startup-id ~/.config/polybar/shades/scripts/pywal.sh ~/Pictures/64m36y0xpf561.png
+exec_always --no-startup-id ~/.config/polybar/shades/scripts/pywal.sh ~/Downloads/wave.png

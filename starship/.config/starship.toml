@@ -1,0 +1,50 @@
+# Configuration stuff for the starship shell 
+
+add_newline = false
+
+
+
+[character]
+success_symbol = "[:: ](bold white)[➜](bold green) "
+error_symbol = "[✗](bold red) "
+
+[username]
+style_user = "green bold"
+style_root = "red bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[line_break]
+disabled = true
+
+[hostname]
+ssh_only = false
+format =  "on [$hostname](bold green) "
+trim_at = ".companyname.com"
+disabled = false
+
+[python]
+pyenv_version_name = true
+
+[status]
+disabled = false
+
+[git_branch]
+symbol = "🌱 "
+truncation_length = 4
+truncation_symbol = ""
+
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+
+
