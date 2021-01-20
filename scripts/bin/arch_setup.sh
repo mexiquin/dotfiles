@@ -36,7 +36,7 @@ function wal_persist {
 # full arch-based linux setup
 function yayinstall {
 # apt apps that need to be installed
-AppList=(lxappearance nitrogen i3-gaps picom blueman bpytop firefox lightdm lightdm-gtk-greeter-settings lightdm-gtk-greeter noto-fonts noto-fonts-emoji openssh pavucontrol pulseaudio pulseaudio-bluetooth qogir-icon-theme-git reflector spotify sshfs stow sudo base-devel python-pywal dconf-editor grub-customizer rofi dunst tlp tree neofetch neovim zsh git curl powertop wget xfce4-terminal alacritty variety visual-studio-code-bin remmina gpick polybar pcmanfm timeshift thunderbird zsh-autosuggestions zsh-syntax-highlighting pamac-aur xfce4-power-manager clipit)
+AppList=(i3lock-fancy-gitxautolock pa-applet-git lxappearance nitrogen i3-gaps picom blueman bpytop firefox lightdm lightdm-gtk-greeter-settings lightdm-gtk-greeter noto-fonts noto-fonts-emoji openssh pavucontrol pulseaudio pulseaudio-bluetooth qogir-icon-theme-git reflector spotify sshfs stow sudo base-devel python-pywal dconf-editor grub-customizer rofi dunst tlp tree neofetch neovim zsh git curl powertop wget xfce4-terminal alacritty variety visual-studio-code-bin remmina gpick polybar pcmanfm timeshift thunderbird zsh-autosuggestions zsh-syntax-highlighting pamac-aur xfce4-power-manager clipit)
 
 yay -S --needed ${AppList[*]}
 }
