@@ -28,24 +28,40 @@ function insyay {
 	fi
 }
 
-
-function wal_persist {
-	echo "wal -R" >> ~/.xinitrc
-}
-
 # full arch-based linux setup
 function yayinstall {
-# apt apps that need to be installed
-AppList=(i3lock-fancy-gitxautolock pa-applet-git lxappearance nitrogen i3-gaps picom blueman bpytop firefox lightdm lightdm-gtk-greeter-settings lightdm-gtk-greeter noto-fonts noto-fonts-emoji openssh pavucontrol pulseaudio pulseaudio-bluetooth qogir-icon-theme-git reflector spotify sshfs stow sudo base-devel python-pywal dconf-editor grub-customizer rofi dunst tlp tree neofetch neovim zsh git curl powertop wget xfce4-terminal alacritty variety visual-studio-code-bin remmina gpick polybar pcmanfm timeshift thunderbird zsh-autosuggestions zsh-syntax-highlighting pamac-aur xfce4-power-manager clipit)
 
-yay -S --needed ${AppList[*]}
-}
+    # apt apps that need to be installed
+    AppList=(bpytop 
+        firefox 
+        noto-fonts 
+        noto-fonts-emoji 
+        openssh 
+        pulseaudio 
+        pulseaudio-bluetooth 
+        reflector 
+        spotify 
+        stow 
+        sudo 
+        base-devel 
+        dconf-editor 
+        grub-customizer 
+        tree 
+        neofetch 
+        neovim 
+        zsh 
+        git 
+        curl 
+        wget 
+        visual-studio-code-bin 
+        remmina 
+        timeshift 
+        zsh-autosuggestions 
+        zsh-syntax-highlighting 
+        pamac-aur 
+        pamac-tray-icon-plasma)
 
-function gogh {
-
-	# change terminal colors with gogh
-	bash -c  "$(wget -qO- https://git.io/vQgMr)"
-
+    yay -S --needed ${AppList[*]}
 }
 
 
@@ -60,8 +76,5 @@ yayinstall
 
 # ins the cursor
 inscursor
-
-# Append to the end of .xinitrc for pywal color persistance
-wal_persist
 
 
