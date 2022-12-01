@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# function for pre-execution countdown
+countdown () {
+
+	echo -e "${GREEN}Counting down:${END}"
+
+	for item in {3..1}
+	do
+		echo -e "${RED}$item${END}"
+		sleep 1
+	done
+}
+
+# Various headers (colors, imports, etc.)
+GREEN='\033[1;32m'
+BLUE='\033[1;34m'
+RED='\033[1;30m'
+END='\033[0m'
+HELP_MSG=$'Usage:\n\tgit-reset [git directory]'
+
+
+# Setup for command arguments
+DIR=$(realpath "$1")
+
+if [ -z "$DIR" ]
+then
+	echo "$HELP_MSG"
+	
+
+elif [ $# -gt 1 ]
+then
+	echo "Too many arguments..."
+	echo "$HELP_MSG"
+
+
+elif [ -d "$DIR" ]
+then
+	cd "$DIR" || exit 1
+else
+	echo "Directory not valid, Exiting..."
+	exit 1
+fi
+
+if [ ! "$(git rev-parse --is-inside-work-tree)" = "true" ]; then 
+	echo "Directory not valid git repo, Exiting..."
+	exit 1
+fi
+
+# Logic for actual script
+read -p "$( echo -e ${RED}"Do you wish to continue? (y/N)"${END})" answer
+case ${answer:0:1} in
+	y|Y )
+		#yes condition
+		countdown
+		echo -e "${BLUE}Starting git reset process on dir: ${GREEN}$PWD${END}"
+		sleep 3
+		git checkout --orphan newBranch
+		git add -A  # Add all files and commit them
+		git commit
+		git branch -D master  # Deletes the master branch
+		git branch -m master  # Rename the current branch to master
+		git push -f origin master  # Force push master branch to github
+		git gc --aggressive --prune=all     # remove the old file
+
+	;;
+	* )
+		#no condition
+		echo -e "${RED}Cancelling...${END}"
+	;;
+esac
