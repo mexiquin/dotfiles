@@ -3,7 +3,6 @@ dunst/
 gtk4/
 home/
 i3/
-nitrogen/
 rofi/
 wallpaper/
 xfce-terminal/
