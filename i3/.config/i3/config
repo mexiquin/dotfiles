@@ -274,8 +274,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-#bindsym $mod+w exec /usr/bin/firefox
-#bindsym $mod+n exec /usr/bin/thunar
+bindsym $mod+w exec /usr/bin/vivaldi-stable
+bindsym $mod+n exec /usr/bin/thunar
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
@@ -326,7 +326,7 @@ set $ws10 "10"
 ##############
 
 # transparency
-# uncomment one of them to be used (picom package is installed per default)
+# uncomment one of them to be used
 # options could need changes, related to used GPU and drivers.
 # to find the right setting consult the archwiki or ask at the forum.
 #
@@ -497,7 +497,7 @@ bar {
 #	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
-		    tray_output primary
+		    #tray_output primary
 		    tray_padding 1
 
 # When strip_workspace_numbers is set to yes,
