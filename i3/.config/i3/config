@@ -54,8 +54,8 @@ new_window pixel 1
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 2
-gaps outer 2
+gaps inner 6
+gaps outer 4
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -275,8 +275,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec /usr/bin/vivaldi-stable
-bindsym $mod+n exec /usr/bin/thunar
+bindsym $sup+w exec /usr/bin/vivaldi-stable
+bindsym $sup+n exec /usr/bin/thunar
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
