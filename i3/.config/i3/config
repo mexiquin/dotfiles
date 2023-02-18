@@ -25,8 +25,7 @@
 font pango: Noto Sans Regular 10
 
 # set the mod key to the ALT key and super key to winkey:
-set $mod Mod1
-set $sup Mod4
+set $mod Mod4
 
 #####################
 # workspace layout: #
@@ -275,8 +274,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $sup+w exec /usr/bin/vivaldi-stable
-bindsym $sup+n exec /usr/bin/thunar
+bindsym $mod+w exec /usr/bin/vivaldi-stable
+bindsym $mod+n exec /usr/bin/thunar
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
