@@ -1,8 +1,0 @@
-bin/
-dunst/
-gtk4/
-home/
-i3/
-rofi/
-wallpaper/
-xfce-terminal/
