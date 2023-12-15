@@ -18,10 +18,10 @@
 
     homeConfigurations.quinton = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-	modules = [ ./home.nix ];
-    };
-    nixosConfigurations = {
+	    modules = [ ./home.nix ];
+      };
 
+    nixosConfigurations = {
       # config for nvidia (latest) setups
       BLACKBOX-NIX = lib.nixosSystem {
         modules = [ ./configuration.nix ];
