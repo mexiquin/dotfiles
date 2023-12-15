@@ -14,6 +14,16 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # auto storage optimization
+  nix.optimise.automatic = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  # set network hostname
   networking.hostName = "BLACKBOX-NIX"; # Define your hostname.
 
   services.xserver = {
