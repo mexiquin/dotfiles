@@ -137,6 +137,7 @@
   networkmanagerapplet
   kitty
   xdg-desktop-portal-gtk
+  dconf
   rofi-wayland
   pcmanfm
   networkmanager-openconnect

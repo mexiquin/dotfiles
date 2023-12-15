@@ -25,6 +25,13 @@
     userName = "Quinton Jasper";
     userEmail = "dropatuningmetal@gmail.com";
   };
+
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
+  };
   
   # ====== GTK styles ======
   gtk = {

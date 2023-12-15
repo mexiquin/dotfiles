@@ -109,6 +109,7 @@
   neovim
   virtiofsd
   most
+  dconf
   neofetch
   home-manager
   htop
