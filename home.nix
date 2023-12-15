@@ -328,6 +328,7 @@
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 1"
         "$mainMod, V, togglefloating,"
+        "$mainMod SHIFT, E, exec, wlogout --protocol layer-shell"
 
         "$mainMod, D, exec, rofi -show drun -show-icons"
         "$mainMod, left, movefocus, l"
