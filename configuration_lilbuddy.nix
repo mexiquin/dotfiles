@@ -107,6 +107,7 @@
   wget
   libnotify
   neovim
+  virtiofsd
   most
   neofetch
   home-manager
@@ -149,4 +150,8 @@
   security.sudo.extraConfig = ''
     Defaults    pwfeedback
   '';
+
+  # virt-manager configuration
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 }

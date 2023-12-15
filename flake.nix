@@ -21,10 +21,13 @@
 	modules = [ ./home.nix ];
     };
     nixosConfigurations = {
+
+      # config for nvidia (latest) setups
       BLACKBOX-NIX = lib.nixosSystem {
         modules = [ ./configuration.nix ];
       };
 
+      # config for non-nvidia setups
       lilbuddy = lib.nixosSystem {
         modules = [ ./configuration_lilbuddy.nix ];
       };

@@ -7,7 +7,6 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      #./hardware-configuration.nix
       ./hardware-configuration.nix
     ];
 
@@ -125,6 +124,7 @@
   wget
   libnotify
   neovim
+  virtiofsd
   most
   neofetch
   home-manager
@@ -167,4 +167,8 @@
   security.sudo.extraConfig = ''
     Defaults    pwfeedback
   '';
+
+  # virt-manager configuration
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 }
