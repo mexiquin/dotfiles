@@ -32,12 +32,13 @@
       uris = ["qemu:///system"];
     };
   };
-  
-  # ====== GTK styles ======
-  gtk = {
-    enable = true;
-    cursorTheme.package = pkgs.quintom-cursor-theme;
-    cursorTheme.name = "Quintom_Ink";
+
+  # ====== cursor theme config ======
+  home.pointerCursor = {
+    package = pkgs.quintom-cursor-theme;
+    gtk.enable = true;
+    name = "Quintom_Ink";
+
   };
 
   # ====== bash config ======
