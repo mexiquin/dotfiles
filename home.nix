@@ -336,6 +336,7 @@
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
+        "$mainMod, L, exec, swaylock -f -c 000000"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"

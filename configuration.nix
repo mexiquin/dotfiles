@@ -80,6 +80,7 @@
     xwayland.enable = true;
   };
 
+  security.pam.services.swaylock = {};
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
@@ -122,6 +123,7 @@
       sublime-merge
       remmina
       gh
+      rclone
     ];
   };
 
@@ -131,11 +133,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  swaylock
+  swayidle
   wget
   libnotify
   neovim
   virtiofsd
   most
+  dconf
   neofetch
   home-manager
   htop
@@ -144,10 +149,10 @@
   git
   dunst
   swww
+  brightnessctl
   networkmanagerapplet
   kitty
   xdg-desktop-portal-gtk
-  dconf
   rofi-wayland
   pcmanfm
   networkmanager-openconnect

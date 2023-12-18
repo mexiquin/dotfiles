@@ -13,7 +13,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+
   # auto storage optimization
   nix.optimise.automatic = true;
 
@@ -82,6 +82,8 @@
     xwayland.enable = true;
   };
 
+  security.pam.services.swaylock = {};
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -118,6 +120,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  swaylock
+  swayidle
   wget
   libnotify
   neovim
