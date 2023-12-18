@@ -23,7 +23,6 @@
     options = "--delete-older-than 30d";
   };
 
-  # set network hostname
   networking.hostName = "BLACKBOX-NIX"; # Define your hostname.
 
   services.xserver = {
