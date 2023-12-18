@@ -369,6 +369,8 @@
         ",XF86AudioPlay,exec,playerctl play-pause"
         #",XF86AudioNext,exec,playerctl next"
         #",XF86AudioPrev,exec,playerctl previous"
+        ", XF86MonBrightnessUp, exec, brightnessctl -s set +5%"
+        ", XF86MonBrightnessDown, exec, brightnessctl -s set 5%-"
         "$mainMod SHIFT, left, movewindow, l"
         "$mainMod SHIFT, right, movewindow, r"
         "$mainMod SHIFT, up, movewindow, u"

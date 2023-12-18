@@ -23,6 +23,10 @@
     options = "--delete-older-than 30d";
   };
 
+  # laptop battery optimizations
+  services.tlp.enable = true;
+  powerManagement.powertop.enable = true;
+  
   networking.hostName = "lilbuddy"; # Define your hostname.
 
   services.xserver = {
@@ -104,6 +108,7 @@
       sublime-merge
       remmina
       gh
+      rclone
     ];
   };
 
@@ -127,6 +132,7 @@
   git
   dunst
   swww
+  brightnessctl
   networkmanagerapplet
   kitty
   xdg-desktop-portal-gtk
