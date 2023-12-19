@@ -155,6 +155,10 @@
       }
 
       {
+        plugin = copilot-vim;
+      }
+
+      {
         plugin = comment-nvim;
         config = toLua "require(\"Comment\").setup()";
       }
