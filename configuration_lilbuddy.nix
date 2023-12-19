@@ -10,6 +10,13 @@
       ./hardware-configuration.nix
     ];
 
+    programs.fish = {
+      enable = true;
+      interactiveShellInit = ''
+        set fish_greeting # disable fish greeting
+      '';
+    };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -104,6 +111,7 @@
     isNormalUser = true;
     description = "Quinton Jasper";
     extraGroups = [ "networkmanager" "wheel" "video" "kvm" "libvirtd" ];
+    shell = pkgs.fish;
     packages = with pkgs; [
       vivaldi
       vivaldi-ffmpeg-codecs
@@ -160,7 +168,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
   
   # onedrive enable
-  services.onedrive.enable = true;
+  #services.onedrive.enable = true;
 
   services.gvfs.enable = true;
   services.udisks2.enable = true;
