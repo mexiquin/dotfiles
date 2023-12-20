@@ -35,12 +35,9 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    displayManager.sddm.enable = true;
-    displayManager.sddm.autoNumlock = true;
-    displayManager.sddm.theme = "where_is_my_sddm_theme";
-    displayManager.sddm.settings = {
-      # Settings go here
-    };
+    displayManager.lightdm.enable = true;
+    displayManager.lightdm.greeters.slick.enable = true;
+
   };
 
   # enable polkit
@@ -165,11 +162,6 @@
   most
   dconf
   neofetch
-  (where-is-my-sddm-theme.override {
-    themeConfig.General = {
-      background = "./assets/wallpaper.jpg";
-    };
-  })
   home-manager
   htop
   tmux
