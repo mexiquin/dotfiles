@@ -154,6 +154,26 @@
   # ====== wlogout config ======
   programs.wlogout = {
     enable = true;
+    style = ''
+      window {
+        background: #282828;
+      }
+
+      button {
+        color: #FFFFFF;
+        background-color: #282828;
+        border-style: solid;
+        border-color: #b8bb26;
+        border-width: 1px;
+        margin: 2px;
+        border-radius: 5px;
+
+      }
+
+      button:focus, button:active, button:hover {
+        background-color: #458588;
+      }
+    '';
 
   };
 
