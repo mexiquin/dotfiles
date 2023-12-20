@@ -38,6 +38,21 @@
     package = pkgs.quintom-cursor-theme;
     gtk.enable = true;
     name = "Quintom_Ink";
+    size = 24;
+
+  };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      package = pkgs.gruvbox-dark-icons-gtk;
+      name = "gruvbox-dark";
+    };
+
+    theme = {
+      package = pkgs.gruvbox-dark-gtk;
+      name = "gruvbox-dark";
+    };
 
   };
 
@@ -98,9 +113,22 @@
       modules-right = [ "battery" "pulseaudio" "network" "tray" "custom/power" ];
 
       "clock" = {
+        format = "{:%H:%M}  ";
+        format-alt = "{:%A, %B %d, %Y (%R)}";
+        tooltip-format = "<tt><small>{calendar}</small></tt>";
 	    calendar = {
-          mode = "year";
-	      on-click-right = "mode";
+          mode = "month";
+          on-click-right = "mode";
+          mode-mon-col = 3;
+          weeks-pos = "right";
+          on-scroll = 1;
+          format = {
+            months = "<span color='#ffead3'><b>{}</b></span>";
+  			days = "<span color='#ecc6d9'><b>{}</b></span>";
+  			weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+  			weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+  			today =  "<span color='#ff6699'><b><u>{}</u></b></span>";
+          };
         };
       };
 

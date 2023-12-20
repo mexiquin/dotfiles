@@ -39,7 +39,12 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    displayManager.lightdm.enable = true;
+    displayManager.sddm.enable = true;
+    displayManager.sddm.autoNumlock = true;
+    displayManager.sddm.theme = "where_is_my_sddm_theme";
+    displayManager.sddm.settings = {
+      # Settings go here
+    };
   };
 
   # enable polkit
@@ -122,12 +127,23 @@
     ];
   };
 
+  programs.xfconf.enable = true;
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-volman
+      thunar-archive-plugin
+    ];
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  libreoffice-fresh
+  unzip
   swaylock
   swayidle
   wget
@@ -137,6 +153,11 @@
   most
   dconf
   neofetch
+  (where-is-my-sddm-theme.override {
+    themeConfig.General = {
+      background = "./assets/wallpaper.jpg";
+    };
+  })
   home-manager
   htop
   tmux
@@ -149,7 +170,6 @@
   kitty
   xdg-desktop-portal-gtk
   rofi-wayland
-  pcmanfm
   networkmanager-openconnect
   ];
 
@@ -171,8 +191,7 @@
   #services.onedrive.enable = true;
 
   services.gvfs.enable = true;
-  services.udisks2.enable = true;
-  services.devmon.enable = true;
+  services.tumbler.enable = true;
 
   # enable pwfeedback
   security.sudo.extraConfig = ''
