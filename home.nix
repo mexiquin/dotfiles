@@ -20,6 +20,11 @@
 
   programs.home-manager.enable = true;
 
+  programs.rofi = {
+    enable = true;
+    theme = "gruvbox-dark-soft";
+  };
+
   programs.git = {
     enable = true;
     userName = "Quinton Jasper";
