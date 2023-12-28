@@ -122,7 +122,7 @@
           format-alt = "{:%A, %B %d, %Y (%R)}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
-            mode = "month";
+            mode = "year";
             on-click-right = "mode";
             mode-mon-col = 3;
             weeks-pos = "right";
@@ -158,8 +158,8 @@
       }
 
       window#waybar {
-          background-color: rgba(43, 48, 59, 0.5);
-          border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+          background-color: rgba(40, 40, 40, 0.8);
+          border-bottom: 3px solid rgba(124, 111, 100, 1);
           color: #ffffff;
           transition-property: background-color;
           transition-duration: .5s;
