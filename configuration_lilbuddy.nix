@@ -33,7 +33,8 @@
   # laptop battery optimizations
   services.tlp.enable = true;
   powerManagement.powertop.enable = true;
-  
+  services.automatic-timezoned.enable = true;
+
   networking.hostName = "lilbuddy"; # Define your hostname.
 
   services.xserver = {
