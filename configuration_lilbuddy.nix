@@ -140,6 +140,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  sublime4
+  nodejs_20
   meld
   mpv
   imv
@@ -199,4 +201,9 @@
   # virt-manager configuration
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+
+  # allow openssl v 1.1.1
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];
 }
