@@ -687,6 +687,10 @@
       "$mainMod" = "SUPER";
       "$mouseMod" = "mouse:274";
 
+      bindr = [
+        "$mainMod, SUPER_L, exec, rofi -show drun -show-icons"
+      ];
+
       bind = [
         "$mainMod, RETURN, exec, kitty"
         "$mainMod, Q, killactive,"
@@ -695,7 +699,6 @@
         "$mainMod SHIFT, E, exec, wlogout --protocol layer-shell"
         ",Print, exec, grim -g \"\$(slurp)\""
 
-        "$mainMod, D, exec, rofi -show drun -show-icons"
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
