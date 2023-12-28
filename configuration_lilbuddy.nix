@@ -140,6 +140,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  meld
+  mpv
+  imv
+  grim
+  slurp
   libreoffice-fresh
   unzip
   swaylock

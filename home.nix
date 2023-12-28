@@ -685,6 +685,7 @@
       };
 
       "$mainMod" = "SUPER";
+      "$mouseMod" = "mouse:274";
 
       bind = [
         "$mainMod, RETURN, exec, kitty"
@@ -742,7 +743,7 @@
       ];
 
       bindm = [
-        "$mainMod, mouse:272, movewindow"
+        ", mouse:274, movewindow"
         "$mainMod, mouse:273, resizewindow"
       ];
 
