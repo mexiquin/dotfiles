@@ -116,12 +116,15 @@
     extraGroups = [ "networkmanager" "wheel" "video" "kvm" "libvirtd" ];
     shell = pkgs.fish;
     packages = with pkgs; [
-      vivaldi
-      vivaldi-ffmpeg-codecs
       sublime-merge
       remmina
       gh
       rclone
+      firefox
+      keepass
+      meld
+      gimp-with-plugins
+      libreoffice-fresh
     ];
   };
 
@@ -142,12 +145,10 @@
   environment.systemPackages = with pkgs; [
   sublime4
   nodejs_20
-  meld
   mpv
   imv
   grim
   slurp
-  libreoffice-fresh
   unzip
   swaylock
   swayidle

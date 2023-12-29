@@ -30,6 +30,8 @@
     options = "--delete-older-than 30d";
   };
 
+  services.automatic-timezoned.enable = true;
+
   networking.hostName = "BLACKBOX-NIX"; # Define your hostname.
 
   services.xserver = {
@@ -126,12 +128,15 @@
     extraGroups = [ "networkmanager" "wheel" "video" "kvm" "libvirtd" ];
     shell = pkgs.fish;
     packages = with pkgs; [
-      vivaldi
-      vivaldi-ffmpeg-codecs
       sublime-merge
       remmina
       gh
       rclone
+      firefox
+      keepass
+      meld
+      gimp-with-plugins
+      libreoffice-fresh
     ];
   };
 
@@ -152,12 +157,10 @@
   environment.systemPackages = with pkgs; [
   sublime4
   nodejs_20
-  meld
   mpv
   imv
   grim
   slurp
-  libreoffice-fresh
   unzip
   swaylock
   swayidle
