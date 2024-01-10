@@ -42,6 +42,9 @@
     layout = "us";
     displayManager.lightdm.enable = true;
     displayManager.lightdm.greeters.slick.enable = true;
+    displayManager.lightdm.extraConfig = ''
+      logind-check-graphical=true
+      '';
 
   };
 
@@ -120,7 +123,8 @@
       remmina
       gh
       rclone
-      firefox
+      vivaldi
+      vivaldi-ffmpeg-codecs
       keepass
       meld
       gimp-with-plugins
@@ -156,7 +160,6 @@
   libnotify
   neovim
   virtiofsd
-  most
   dconf
   neofetch
   home-manager
