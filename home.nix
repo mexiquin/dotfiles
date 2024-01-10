@@ -3,6 +3,7 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
+
   home.username = "quinton";
   home.homeDirectory = "/home/quinton";
 
@@ -14,11 +15,49 @@
   home.file = {
   };
 
-  home.sessionVariables = {
-    PAGER = "most";
-  };
-
   programs.home-manager.enable = true;
+
+  programs.vscode = {
+    enable = true;
+    
+    userSettings = {
+      "terminal.integrated.defaultProfile.linux"= "bash";
+      "terminal.integrated.profiles.linux"= {
+        "bash" = {
+          "path" = "/usr/bin/flatpak-spawn";
+          "args" = ["--host" "--env=TERM=xterm-256color" "bash"];
+        };
+      };
+      "editor.inlineSuggest.enabled" = true;
+      "workbench.colorTheme" = "One Dark Pro";
+      "workbench.sideBar.location" = "left";
+      "window.titleBarStyle" = "custom";
+      "explorer.confirmDragAndDrop"= false;
+      "editor.fontFamily" = "'Comic Code Ligatures Medium',Fira Code Medium, monospace";
+
+      "[javascript]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+
+      "[jsonc]"= {
+        "editor.defaultFormatter"= "esbenp.prettier-vscode";
+      };
+      "[scss]"= {
+        "editor.defaultFormatter"= "esbenp.prettier-vscode";
+      };
+      "git.autofetch"= true;
+      "git.confirmSync"= false;
+      "explorer.confirmDelete"= false;
+      "editor.renderWhitespace"= "none";
+      "[html]"= {
+        "editor.defaultFormatter"= "esbenp.prettier-vscode";
+      };
+      "security.workspace.trust.untrustedFiles"= "open";
+      "redhat.telemetry.enabled"= false;
+    };
+
+
+  };
 
   programs.rofi = {
     enable = true;
@@ -606,7 +645,10 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      monitor = ",preferred,auto,auto";
+      monitor = [
+        "HDMI-A-1,preferred,0x0,auto"
+        "DP-1,preferred,1920x0,auto"
+        ];
       env = "XCURSOR_SIZE,24";
       input = {
         kb_layout = "us";

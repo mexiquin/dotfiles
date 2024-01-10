@@ -9,22 +9,23 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
     in {
-
-    homeConfigurations.quinton = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-	    modules = [ ./home.nix ];
-      };
 
     nixosConfigurations = {
       # config for nvidia (latest) setups
       BLACKBOX-NIX = lib.nixosSystem {
-        modules = [ ./configuration.nix ];
+        modules = [ 
+          ./configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.quinton = import ./home.nix;
+          }
+        ];
       };
 
       # config for non-nvidia setups
