@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  inherit (config.lib.formats.rasi) mkLiteral;
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -61,7 +64,7 @@
 
   programs.rofi = {
     enable = true;
-    theme = "gruvbox-dark-soft";
+    theme = "gruvbox-dark-soft"; 
   };
 
   programs.git = {
@@ -495,32 +498,6 @@
     '';
   };
 
-  # ====== wlogout config ======
-  programs.wlogout = {
-    enable = true;
-    style = ''
-      window {
-        background: #282828;
-      }
-
-      button {
-        color: #FFFFFF;
-        background-color: #282828;
-        border-style: solid;
-        border-color: #b8bb26;
-        border-width: 1px;
-        margin: 2px;
-        border-radius: 5px;
-
-      }
-
-      button:focus, button:active, button:hover {
-        background-color: #458588;
-      }
-    '';
-
-  };
-
   # ====== Neovim configuration ======
   programs.neovim =
   let
@@ -739,7 +716,8 @@
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 1"
         "$mainMod, V, togglefloating,"
-        "$mainMod SHIFT, E, exec, wlogout --protocol layer-shell"
+        "$mainMod SHIFT, E, exec, rofi -show p -modi p:rofi-power-menu
+"
         ",Print, exec, grim -g \"\$(slurp)\""
 
         "$mainMod, left, movefocus, l"

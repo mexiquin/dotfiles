@@ -135,7 +135,6 @@
       rclone
       vivaldi
       vivaldi-ffmpeg-codecs
-      keepass
       meld
       gimp-with-plugins
       libreoffice-fresh
@@ -157,7 +156,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  sublime4
   nodejs_20
   mpv
   imv
@@ -184,6 +182,7 @@
   kitty
   xdg-desktop-portal-gtk
   rofi-wayland
+  rofi-power-menu
   networkmanager-openconnect
   ];
 
