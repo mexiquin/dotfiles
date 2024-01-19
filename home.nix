@@ -20,6 +20,13 @@ in
 
   programs.home-manager.enable = true;
 
+  programs.go = {
+    enable = true;
+
+  };
+
+  # if I can find a rust package, put it here
+
   programs.vscode = {
     enable = true;
     
@@ -626,7 +633,10 @@ in
         "HDMI-A-1,preferred,0x0,auto"
         "DP-1,preferred,1920x0,auto"
         ];
-      env = "XCURSOR_SIZE,24";
+        env = [
+          "XCURSOR_SIZE,24"
+       #   "WLR_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
+        ];
       input = {
         kb_layout = "us";
         kb_variant = "";

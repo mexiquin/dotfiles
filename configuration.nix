@@ -184,6 +184,7 @@
   rofi-wayland
   rofi-power-menu
   networkmanager-openconnect
+  ranger
   ];
 
   # List services that you want to enable:
