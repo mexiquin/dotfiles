@@ -30,7 +30,14 @@
 
       # config for non-nvidia setups
       lilbuddy = lib.nixosSystem {
-        modules = [ ./configuration_lilbuddy.nix ];
+        modules = [ 
+	./configuration_lilbuddy.nix 
+	home-manager.nixosModules.home-manager {
+		home-manager.useGlobalPkgs = true;
+		home-manager.useUserPackages = true;
+		home-manager.users.quinton = import ./home.nix;
+	}
+	];
       };
     };
   };

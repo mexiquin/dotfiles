@@ -40,12 +40,10 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    displayManager.lightdm.enable = true;
-    displayManager.lightdm.greeters.slick.enable = true;
-    displayManager.lightdm.extraConfig = ''
-      logind-check-graphical=true
-      '';
-
+    displayManager.sddm.enable = true;
+    displayManager.sddm.autoNumlock = true;
+    displayManager.sddm.theme = "chili"; 
+    #displayManager.lightdm.greeters.slick.enable = true;
   };
 
   # enable polkit
@@ -174,6 +172,7 @@
   rofi-wayland
   rofi-power-menu
   networkmanager-openconnect
+  sddm-chili-theme
   ];
 
   # List services that you want to enable:
@@ -202,8 +201,8 @@
   '';
 
   # virt-manager configuration
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+  #virtualisation.libvirtd.enable = true;
+  #programs.virt-manager.enable = true;
 
   # allow openssl v 1.1.1
   nixpkgs.config.permittedInsecurePackages = [
