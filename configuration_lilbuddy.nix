@@ -172,6 +172,7 @@
   rofi-wayland
   rofi-power-menu
   networkmanager-openconnect
+  ranger
   sddm-chili-theme
   ];
 
