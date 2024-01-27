@@ -154,37 +154,44 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  nodejs_20
-  mpv
-  imv
-  grim
-  slurp
-  unzip
-  swaylock
-  swayidle
-  wget
-  libnotify
-  neovim
-  virtiofsd
-  dconf
-  neofetch
-  home-manager
-  htop
-  tmux
-  tree
-  git
-  dunst
-  swww
-  brightnessctl
-  networkmanagerapplet
-  kitty
-  xdg-desktop-portal-gtk
-  rofi-wayland
-  rofi-power-menu
-  networkmanager-openconnect
-  ranger
-  sddm-chili-theme
+    man-pages
+    nodejs_20
+    mpv
+    imv
+    grim
+    slurp
+    unzip
+    swaylock
+    swayidle
+    wget
+    libnotify
+    neovim
+    virtiofsd
+    dconf
+    neofetch
+    home-manager
+    htop
+    tmux
+    tree
+    git
+    dunst
+    swww
+    brightnessctl
+    networkmanagerapplet
+    kitty
+    xdg-desktop-portal-gtk
+    rofi-wayland
+    rofi-power-menu
+    networkmanager-openconnect
+    ranger
+    sddm-chili-theme
   ];
+
+  documentation = {
+    dev.enable = true;
+    man.generateCaches = true;
+    nixos.includeAllModules = true;
+  };
 
   # List services that you want to enable:
 

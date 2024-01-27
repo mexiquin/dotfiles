@@ -16,6 +16,7 @@ in
   ];
 
   home.file = {
+    ".config/nixpkgs/config.nix".text = "{allowUnfree = true;}";
   };
 
   programs.home-manager.enable = true;
@@ -23,6 +24,12 @@ in
   programs.go = {
     enable = true;
 
+  };
+
+  # Create and manage standard home folders (Desktop, Downloads, Pictures, etc.)
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
   };
 
   # if I can find a rust package, put it here
@@ -788,6 +795,10 @@ in
         "nm-applet --indicator"
         "blueman-applet"
         "waybar"
+      ];
+
+      windowrulev2 = [
+        "bordercolor rgb(FF0000),fullscreen:1"
       ];
     };
   };
