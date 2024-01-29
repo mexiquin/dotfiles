@@ -36,44 +36,7 @@ in
 
   programs.vscode = {
     enable = true;
-    
-    userSettings = {
-      "terminal.integrated.defaultProfile.linux"= "bash";
-      "terminal.integrated.profiles.linux"= {
-        "bash" = {
-          "path" = "/usr/bin/flatpak-spawn";
-          "args" = ["--host" "--env=TERM=xterm-256color" "bash"];
-        };
-      };
-      "editor.inlineSuggest.enabled" = true;
-      "workbench.colorTheme" = "One Dark Pro";
-      "workbench.sideBar.location" = "left";
-      "window.titleBarStyle" = "custom";
-      "explorer.confirmDragAndDrop"= false;
-      "editor.fontFamily" = "'Comic Code Ligatures Medium',Fira Code Medium, monospace";
-
-      "[javascript]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-
-      "[jsonc]"= {
-        "editor.defaultFormatter"= "esbenp.prettier-vscode";
-      };
-      "[scss]"= {
-        "editor.defaultFormatter"= "esbenp.prettier-vscode";
-      };
-      "git.autofetch"= true;
-      "git.confirmSync"= false;
-      "explorer.confirmDelete"= false;
-      "editor.renderWhitespace"= "none";
-      "[html]"= {
-        "editor.defaultFormatter"= "esbenp.prettier-vscode";
-      };
-      "security.workspace.trust.untrustedFiles"= "open";
-      "redhat.telemetry.enabled"= false;
-    };
-
-
+    package = pkgs.vscode.fhs;
   };
 
   programs.rofi = {
