@@ -160,7 +160,7 @@ in
         "custom/power" = {
           format = " ⏻ ";
           tooltip = false;
-          on-click = "wlogout --protocol layer-shell";
+          on-click = "rofi -show p -modi p:rofi-power-menu";
         };
 
         "actions" = {
@@ -179,7 +179,7 @@ in
 
       window#waybar {
           background-color: rgba(40, 40, 40, 0.8);
-          border-bottom: 3px solid rgba(124, 111, 100, 1);
+          border-bottom: 2px solid rgba(124, 111, 100, 1);
           color: #ffffff;
           transition-property: background-color;
           transition-duration: .5s;
@@ -696,8 +696,7 @@ in
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 1"
         "$mainMod, V, togglefloating,"
-        "$mainMod SHIFT, E, exec, rofi -show p -modi p:rofi-power-menu
-"
+        "$mainMod SHIFT, E, exec, rofi -show p -modi p:rofi-power-menu"
         ",Print, exec, grim -g \"\$(slurp)\""
 
         "$mainMod, left, movefocus, l"
