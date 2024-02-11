@@ -1,5 +1,5 @@
 {
-  description = "New System Flake";
+  description = "Quinton's Tiling Desktop Flake";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";

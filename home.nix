@@ -688,10 +688,10 @@ in
       "$mouseMod" = "mouse:274";
 
       bindr = [
-        "$mainMod, SUPER_L, exec, rofi -show drun -show-icons"
       ];
 
       bind = [
+        "$mainMod, D, exec, rofi -show drun -show-icons"
         "$mainMod, RETURN, exec, kitty"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 1"
@@ -747,7 +747,7 @@ in
       ];
 
       bindm = [
-        ", mouse:274, movewindow"
+        "$mainMod, mouse:274, movewindow"
         "$mainMod, mouse:273, resizewindow"
       ];
 

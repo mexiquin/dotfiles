@@ -133,9 +133,12 @@
       rclone
       vivaldi
       vivaldi-ffmpeg-codecs
+      firefox
       meld
       gimp-with-plugins
       libreoffice-fresh
+      keepassxc
+      nextcloud-client
     ];
   };
 
