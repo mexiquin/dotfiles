@@ -123,9 +123,12 @@
       rclone
       vivaldi
       vivaldi-ffmpeg-codecs
+      firefox
       meld
       gimp-with-plugins
       libreoffice-fresh
+      keepassxc
+      nextcloud-client
     ];
   };
 
@@ -151,7 +154,8 @@
     grim
     slurp
     unzip
-    swaylock
+    #swaylock
+    swaylock-fancy
     swayidle
     wget
     libnotify
