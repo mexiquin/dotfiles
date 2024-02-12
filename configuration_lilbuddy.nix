@@ -10,13 +10,6 @@
       ./hardware-configuration.nix
     ];
 
-    programs.fish = {
-      enable = true;
-      interactiveShellInit = ''
-        set fish_greeting # disable fish greeting
-      '';
-    };
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -115,7 +108,6 @@
     isNormalUser = true;
     description = "Quinton Jasper";
     extraGroups = [ "networkmanager" "wheel" "video" "kvm" "libvirtd" ];
-    shell = pkgs.fish;
     packages = with pkgs; [
       sublime-merge
       remmina
