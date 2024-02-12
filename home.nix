@@ -1,11 +1,18 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
   inherit (config.lib.formats.rasi) mkLiteral;
+  opacity = "0.8";
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
+
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+  ];
+
+  colorScheme = inputs.nix-colors.colorSchemes.onedark;
 
   home.username = "quinton";
   home.homeDirectory = "/home/quinton";
@@ -41,7 +48,7 @@ in
 
   programs.rofi = {
     enable = true;
-    theme = "gruvbox-dark-soft"; 
+    theme = "Arc-Dark"; 
   };
 
   programs.git = {
@@ -69,13 +76,13 @@ in
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.gruvbox-dark-icons-gtk;
-      name = "gruvbox-dark";
+      package = pkgs.arc-icon-theme;
+      name = "Arc";
     };
 
     theme = {
-      package = pkgs.gruvbox-dark-gtk;
-      name = "gruvbox-dark";
+      package = pkgs.arc-theme;
+      name = "Arc-Dark";
     };
 
   };
@@ -98,7 +105,7 @@ in
       window_padding_width = 5;
       background_opacity = "0.8";
     };
-    theme = "Gruvbox Dark";
+    theme = "One Dark";
     font.package = pkgs.fira-code;
     font.name = "Fira Code Medium";
   };
@@ -113,15 +120,26 @@ in
         offset = "30x50";
         origin = "top-right";
         transparency = 10;
-        frame_color = "#eceff1";
+        frame_color = "#${config.colorScheme.palette.base05}";
+        separator_color = "#${config.colorScheme.palette.base05}";
         font = "Droid Sans 9";
 	};
 
-    urgency_normal = {
-        background = "#37474f";
-        foreground = "#eceff1";
+      urgency_normal = {
+        background = "#${config.colorScheme.palette.base02}";
+        foreground = "#${config.colorScheme.palette.base05}";
         timeout = 10;
-	};
+      };
+
+      urgency_critical = {
+        background = "#${config.colorScheme.palette.base08}";
+        foreground = "#${config.colorScheme.palette.base06}";
+      };
+
+      urgency_low = {
+        background = "#${config.colorScheme.palette.base01}";
+        foreground = "#${config.colorScheme.palette.base03}";
+      };
     };
   };
 
@@ -133,6 +151,10 @@ in
       mainBar = {
         layer = "top";
         position = "top";
+        spacing = 10;
+        margin-top = 5;
+        margin-left = 5;
+        margin-right = 5;
         modules-left = [ "hyprland/workspaces" ];
         modules-center = ["clock"];
         modules-right = [ "battery" "pulseaudio" "network" "tray" "custom/power" ];
@@ -175,36 +197,30 @@ in
         /* `otf-font-awesome` is required to be installed for icons */
         font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
         font-size: 13px;
+        border-radius: 2px;
+        opacity: 1;
       }
 
       window#waybar {
-          background-color: rgba(40, 40, 40, 0.8);
-          border-bottom: 2px solid rgba(124, 111, 100, 1);
+          background-color: #${config.colorScheme.palette.base00};
+          opacity: ${opacity};
+          border: 2px;
+          border-color: #${config.colorScheme.palette.base01};
           color: #ffffff;
           transition-property: background-color;
-          transition-duration: .5s;
+          transition-duration: .5s; 
       }
 
-      window#waybar.hidden {
-          opacity: 0.2;
+      .modules-left {
+        padding: 5px;
       }
 
-      /*
-      window#waybar.empty {
-          background-color: transparent;
-      }
-      window#waybar.solo {
-          background-color: #FFFFFF;
-      }
-      */
-
-      window#waybar.termite {
-          background-color: #3F3F3F;
+      .modules-right {
+        padding: 5px;
       }
 
-      window#waybar.chromium {
-          background-color: #000000;
-          border: none;
+      .modules-center {
+        padding: 5px;
       }
 
       button {
@@ -213,31 +229,27 @@ in
           /* Avoid rounded borders under each button name */
           border: none;
           border-radius: 0;
-      }
-
-      /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-      button:hover {
-          background: inherit;
-          box-shadow: inset 0 -3px #ffffff;
-      }
+      } 
 
       #workspaces button {
-          padding: 0 5px;
-          background-color: transparent;
-          color: #ffffff;
+          padding: 0 10px;
+          background-color: #${config.colorScheme.palette.base00};
+          color: #${config.colorScheme.palette.base05};
       }
 
       #workspaces button:hover {
-          background: rgba(0, 0, 0, 0.2);
+          background-color: #${config.colorScheme.palette.base02};
+          color: #${config.colorScheme.palette.base06};
+          border: none;
       }
 
-      #workspaces button.focused {
-          background-color: #64727D;
-          box-shadow: inset 0 -3px #ffffff;
+      #workspaces button:focus {
+          background: #${config.colorScheme.palette.base00};
+          border-bottom: #${config.colorScheme.palette.base06};
       }
 
       #workspaces button.urgent {
-          background-color: #eb4d4b;
+          background-color: #${config.colorScheme.palette.base08};
       }
 
       #mode {
@@ -281,7 +293,7 @@ in
       }
 
       #clock {
-          background-color: #64727D;
+          background-color: #${config.colorScheme.palette.base01};
       }
 
       #battery {
@@ -341,8 +353,8 @@ in
       }
 
       #pulseaudio {
-          background-color: #f1c40f;
-          color: #000000;
+          background-color: #${config.colorScheme.palette.base01};
+          color: #${config.colorScheme.palette.base06};
       }
 
       #pulseaudio.muted {
@@ -515,8 +527,8 @@ in
       }
 
       {
-        plugin = gruvbox-nvim;
-        config = "colorscheme gruvbox";
+        plugin = onedark-nvim;
+        config = "colorscheme onedark";
       }
 
       neodev-nvim
@@ -627,8 +639,8 @@ in
         gaps_in = "5";
         gaps_out = "5";
         border_size = "1";
-        "col.active_border" = "rgba(b8bb26aa)";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "rgba(${config.colorScheme.palette.base0B}aa)";
+        "col.inactive_border" = "rgba(${config.colorScheme.palette.base02}aa)";
 
         layout = "master";
 
@@ -703,7 +715,7 @@ in
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
-        "$mainMod, L, exec, swaylock -f -c 000000"
+        "$mainMod, L, exec, swaylock-fancy"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
@@ -753,14 +765,16 @@ in
       # Application Autostart
       exec-once = [
         "swww init"
-        "swww img ~/Pictures/wallpaper.png"
+        "swww img ~/Pictures/wallpaper.jpg"
         "nm-applet --indicator"
         "blueman-applet"
         "waybar"
+        "nextcloud --background"
+        "swayidle -w timeout 300 'swaylock-fancy"
       ];
 
       windowrulev2 = [
-        "bordercolor rgb(FF0000),fullscreen:1"
+        "bordercolor rgb(${config.colorScheme.palette.base08}),fullscreen:1"
       ];
     };
   };

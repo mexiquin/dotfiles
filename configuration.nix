@@ -164,7 +164,8 @@
     grim
     slurp
     unzip
-    swaylock
+    #swaylock
+    swaylock-fancy
     swayidle
     wget
     libnotify
