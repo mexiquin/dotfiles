@@ -228,8 +228,8 @@ in
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.arc-icon-theme;
-      name = "Arc";
+      package = pkgs.papirus-nord;
+      name = "frostblue3";
     };
 
     theme = {
