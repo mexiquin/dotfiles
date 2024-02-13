@@ -12,7 +12,7 @@ in
     inputs.nix-colors.homeManagerModules.default
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.onedark;
+  colorScheme = inputs.nix-colors.colorSchemes.nord;
 
   home.username = "quinton";
   home.homeDirectory = "/home/quinton";
@@ -48,7 +48,159 @@ in
 
   programs.rofi = {
     enable = true;
-    theme = "Arc-Dark"; 
+    theme = ''
+      * {
+        nord0: #${config.colorScheme.palette.base00};
+        nord1: #${config.colorscheme.palette.base01};
+        nord2: #${config.colorscheme.palette.base02};
+        nord3: #${config.colorscheme.palette.base03};
+        nord4: #${config.colorscheme.palette.base04};
+        nord5: #${config.colorscheme.palette.base05};
+        nord6: #${config.colorscheme.palette.base06};
+        nord7: #${config.colorscheme.palette.base07};
+        nord8: #${config.colorscheme.palette.base08};
+        nord9: #${config.colorscheme.palette.base09};
+        nord10: #${config.colorscheme.palette.base0A};
+        nord11: #${config.colorscheme.palette.base0B};
+        nord12: #${config.colorscheme.palette.base0C};
+        nord13: #${config.colorscheme.palette.base0D};
+        nord14: #${config.colorscheme.palette.base0E};
+        nord15: #${config.colorscheme.palette.base0F};
+
+        spacing: 2;
+
+        background-color: var(nord1);
+
+        background: var(nord1);
+        foreground: var(nord4);
+
+        normal-background: var(background);
+        normal-foreground: var(foreground);
+        alternate-normal-background: var(background);
+        alternate-normal-foreground: var(foreground);
+        selected-normal-background: var(nord8);
+        selected-normal-foreground: var(background);
+
+        active-background: var(background);
+        active-foreground: var(nord10);
+        alternate-active-background: var(background);
+        alternate-active-foreground: var(nord10);
+        selected-active-background: var(nord10);
+        selected-active-foreground: var(background);
+
+        urgent-background: var(background);
+        urgent-foreground: var(nord11);
+        alternate-urgent-background: var(background);
+        alternate-urgent-foreground: var(nord11);
+        selected-urgent-background: var(nord11);
+        selected-urgent-foreground: var(background);
+      }
+
+      element {
+          padding: 0px 0px 0px 7px;
+          spacing: 5px;
+          border:  0;
+          cursor:  pointer;
+      }
+      element normal.normal {
+          background-color: var(normal-background);
+          text-color: var(normal-foreground);
+      }
+      element normal.urgent {
+          background-color: var(urgent-background);
+          text-color: var(urgent-foreground);
+      }
+      element normal.active {
+          background-color: var(active-background);
+          text-color: var(active-foreground);
+      }
+      element selected.normal {
+          background-color: var(selected-normal-background);
+          text-color: var(selected-normal-foreground);
+      }
+      element selected.urgent {
+          background-color: var(selected-urgent-background);
+          text-color: var(selected-urgent-foreground);
+      }
+      element selected.active {
+          background-color: var(selected-active-background);
+          text-color: var(selected-active-foreground);
+      }
+      element alternate.normal {
+          background-color: var(alternate-normal-background);
+          text-color: var(alternate-normal-foreground);
+      }
+      element alternate.urgent {
+          background-color: var(alternate-urgent-background);
+          text-color: var(alternate-urgent-foreground);
+      }
+      element alternate.active {
+          background-color: var(alternate-active-background);
+          text-color: var(alternate-active-foreground);
+      }
+      element-text {
+          background-color: rgba(0, 0, 0, 0%);
+          text-color: inherit;
+          highlight: inherit;
+          cursor: inherit;
+      }
+      element-icon {
+          background-color: rgba(0, 0, 0, 0%);
+          size: 1.0000em;
+          text-color: inherit;
+          cursor: inherit;
+      }
+      window {
+          padding: 0;
+          border: 0;
+          background-color: var(background);
+      }
+      mainbox {
+          padding: 0;
+          border: 0;
+      }
+      message {
+          margin: 0px 7px;
+      }
+      textbox {
+          text-color: var(foreground);
+      }
+      listview {
+          margin: 0px 0px 5px;
+          scrollbar: true;
+          spacing: 2px;
+          fixed-height: 0;
+      }
+      scrollbar {
+          padding: 0;
+          handle-width: 14px;
+          border: 0;
+          handle-color: var(nord3);
+      }
+      button {
+          spacing: 0;
+          text-color: var(normal-foreground);
+          cursor: pointer;
+      }
+      button selected {
+          background-color: var(selected-normal-background);
+          text-color: var(selected-normal-foreground);
+      }
+      inputbar {
+          padding: 7px;
+          margin: 7px;
+          spacing: 0;
+          text-color: var(normal-foreground);
+          background-color: var(nord3);
+          children: [ entry ];
+      }
+      entry {
+          spacing: 0;
+          cursor: text;
+          text-color: var(normal-foreground);
+          background-color: var(nord3);
+      }
+    ''; 
   };
 
   programs.git = {
@@ -81,8 +233,8 @@ in
     };
 
     theme = {
-      package = pkgs.arc-theme;
-      name = "Arc-Dark";
+      package = pkgs.nordic;
+      name = "Nordic-bluish-accent";
     };
 
   };
@@ -105,7 +257,7 @@ in
       window_padding_width = 5;
       background_opacity = "0.8";
     };
-    theme = "One Dark";
+    theme = "Nord";
     font.package = pkgs.fira-code;
     font.name = "Fira Code Medium";
   };
@@ -233,7 +385,7 @@ in
 
       #workspaces button {
           padding: 0 10px;
-          background-color: #${config.colorScheme.palette.base00};
+          background-color: #${config.colorScheme.palette.base01};
           color: #${config.colorScheme.palette.base05};
       }
 
@@ -527,8 +679,8 @@ in
       }
 
       {
-        plugin = onedark-nvim;
-        config = "colorscheme onedark";
+        plugin = nord-nvim;
+        config = "colorscheme nord";
       }
 
       neodev-nvim
@@ -569,11 +721,6 @@ in
       }
 
       vim-nix
-
-      # {
-      #   plugin = vimPlugins.own-onedark-nvim;
-      #   config = "colorscheme onedark";
-      # }
     ];
 
     extraLuaConfig = ''
