@@ -129,6 +129,7 @@
       libreoffice-fresh
       keepassxc
       nextcloud-client
+      sublime4
     ];
   };
 
