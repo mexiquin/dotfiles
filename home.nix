@@ -148,14 +148,14 @@ in
           text-color = mkLiteral "var(alternate-active-foreground)";
       };
 
-      "element-text" ={
+      "element-text" = {
           background-color = mkLiteral "rgba(0, 0, 0, 0%)";
           text-color = mkLiteral "inherit";
           highlight = mkLiteral "inherit";
           cursor = mkLiteral "inherit";
       };
 
-      "element-icon" ={
+      "element-icon" = {
           background-color = mkLiteral "rgba(0, 0, 0, 0%)";
           size = mkLiteral "1.0000em";
           text-color = mkLiteral "inherit";
@@ -163,9 +163,10 @@ in
       };
 
       "window" ={
-          padding = 0;
+          padding = 10;
           border = 0;
           background-color = mkLiteral "var(background)";
+          width = mkLiteral "25%";
       };
 
       "mainbox" ={
@@ -184,7 +185,7 @@ in
       "listview" ={
           margin = mkLiteral "0px 0px 5px";
           scrollbar = true;
-          spacing = mkLiteral "2px";
+          spacing = mkLiteral "10px";
           fixed-height = 0;
       };
 
