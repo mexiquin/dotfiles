@@ -72,13 +72,13 @@ in
         background-color = mkLiteral "var(nord1)";
 
         background = mkLiteral "var(nord1)";
-        foreground = mkLiteral "var(nord4)";
+        foreground = mkLiteral "var(nord6)";
 
         normal-background = mkLiteral "var(background)";
         normal-foreground = mkLiteral "var(foreground)";
         alternate-normal-background = mkLiteral "var(background)";
         alternate-normal-foreground = mkLiteral "var(foreground)";
-        selected-normal-background = mkLiteral "var(nord8)";
+        selected-normal-background = mkLiteral "var(nord13)";
         selected-normal-foreground = mkLiteral "var(background)";
 
         active-background = mkLiteral "var(background)";
@@ -89,10 +89,10 @@ in
         selected-active-foreground = mkLiteral "var(background)";
 
         urgent-background = mkLiteral "var(background)";
-        urgent-foreground = mkLiteral "var(nord11)";
+        urgent-foreground = mkLiteral "var(nord8)";
         alternate-urgent-background = mkLiteral "var(background)";
-        alternate-urgent-foreground = mkLiteral "var(nord11)";
-        selected-urgent-background = mkLiteral "var(nord11)";
+        alternate-urgent-foreground = mkLiteral "var(nord8)";
+        selected-urgent-background = mkLiteral "var(nord8)";
         selected-urgent-foreground = mkLiteral "var(background)";
       };
 
@@ -332,6 +332,11 @@ in
         modules-center = ["clock"];
         modules-right = [ "battery" "pulseaudio" "network" "tray" "custom/power" ];
 
+        "tray" = {
+          spacing = 5;
+          icon-size = 18;
+        };
+
         "clock" = {
           format = "{:%H:%M}  ";
           format-alt = "{:%A, %B %d, %Y (%R)}";
@@ -518,7 +523,7 @@ in
       }
 
       #network {
-          background-color: #2980b9;
+          background-color: #${config.colorScheme.palette.base02};
       }
 
       #network.disconnected {
@@ -526,13 +531,13 @@ in
       }
 
       #pulseaudio {
-          background-color: #${config.colorScheme.palette.base01};
+          background-color: #${config.colorScheme.palette.base0F};
           color: #${config.colorScheme.palette.base06};
       }
 
       #pulseaudio.muted {
-          background-color: #90b1b1;
-          color: #2a5c45;
+          background-color: #${config.colorScheme.palette.base08};
+          color: #FFFFFF;
       }
 
       #wireplumber {
@@ -567,7 +572,7 @@ in
       }
 
       #tray {
-          background-color: #2980b9;
+          background-color: #${config.colorScheme.palette.base0F};
       }
 
       #tray > .passive {
