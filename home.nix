@@ -134,18 +134,18 @@ in
       };
 
       "element alternate.normal" ={
-          background-color = mkLiteral"var(alternate-normal-background)";
-          text-color = mkLiteral"var(alternate-normal-foreground)";
+          background-color = mkLiteral "var(alternate-normal-background)";
+          text-color = mkLiteral "var(alternate-normal-foreground)";
       };
 
       "element alternate.urgent" ={
-          background-color = mkLiteral"var(alternate-urgent-background)";
-          text-color = mkLiteral"var(alternate-urgent-foreground)";
+          background-color = mkLiteral "var(alternate-urgent-background)";
+          text-color = mkLiteral "var(alternate-urgent-foreground)";
       };
 
       "element alternate.active" ={
-          background-color = mkLiteral"var(alternate-active-background)";
-          text-color = mkLiteral"var(alternate-active-foreground)";
+          background-color = mkLiteral "var(alternate-active-background)";
+          text-color = mkLiteral "var(alternate-active-foreground)";
       };
 
       "element-text" ={
@@ -174,7 +174,7 @@ in
       };
 
       "message" ={
-          margin = mkLiteral"0px 7px";
+          margin = mkLiteral "0px 7px";
       };
 
       "textbox" ={
@@ -249,8 +249,8 @@ in
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.papirus-nord;
-      name = "frostblue3";
+      package = pkgs.papirus-nord.override { accent = "frostblue3"; };
+      name = "Papirus-Dark";
     };
 
     theme = {
