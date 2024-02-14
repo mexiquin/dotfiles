@@ -39,13 +39,6 @@ in
     createDirectories = true;
   };
 
-  # if I can find a rust package, put it here
-
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode.fhs;
-  };
-
   programs.rofi = {
     enable = true;
     theme = {
