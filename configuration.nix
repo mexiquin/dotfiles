@@ -18,9 +18,19 @@
     };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot = {
+    supportedFilesystems = [ "ntfs" ];
+    loader = {
+      efi.canTouchEfiVariables = true;
+      grub = {
+        enable = true;
+        device = "nodev";
+        useOSProber = true;
+        efiSupport = true;
+      };
+    };
+  };
+
   # auto storage optimization
   nix.optimise.automatic = true;
 
