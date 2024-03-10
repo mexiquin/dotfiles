@@ -932,7 +932,7 @@ in
       # Application Autostart
       exec-once = [
         "swww init"
-        "swww img ~/Pictures/wallpaper.jpg"
+        "swww img ./nordic-wallpapers/wallpapers/nord_buildings.png"
         "nm-applet --indicator"
         "blueman-applet"
         "waybar"
