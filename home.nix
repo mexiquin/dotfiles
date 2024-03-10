@@ -858,7 +858,7 @@ in
         sensitivity = "-0.5";
       };
 
-      "$mainMod" = "ALT";
+      "$mainMod" = "SUPER";
       "$mouseMod" = "mouse:274";
 
       bindr = [
