@@ -167,6 +167,7 @@
       nextcloud-client
       sublime4
       nicotine-plus
+      pika-backup
     ];
   };
  
