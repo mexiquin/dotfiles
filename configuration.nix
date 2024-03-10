@@ -140,6 +140,7 @@
       keepassxc
       nextcloud-client
       sublime4
+      nicotine-plus
     ];
   };
 
