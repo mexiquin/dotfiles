@@ -54,6 +54,22 @@
   # enable polkit
   security.polkit.enable = true;
 
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+    };
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -153,16 +169,7 @@
       nicotine-plus
     ];
   };
-
-  programs.xfconf.enable = true;
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-volman
-      thunar-archive-plugin
-    ];
-  };
-
+ 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -200,6 +207,7 @@
     rofi-power-menu
     networkmanager-openconnect
     ranger
+    pcmanfm
     sddm-chili-theme
   ];
 
@@ -225,9 +233,10 @@
   
   # onedrive enable
   #services.onedrive.enable = true;
-
+  
   services.gvfs.enable = true;
-  services.tumbler.enable = true;
+  services.udisks2.enable = true;
+  services.devmon.enable = true;
 
   # enable pwfeedback
   security.sudo.extraConfig = ''
