@@ -28,11 +28,6 @@ in
 
   programs.home-manager.enable = true;
 
-  programs.go = {
-    enable = true;
-
-  };
-
   # Create and manage standard home folders (Desktop, Downloads, Pictures, etc.)
   xdg.userDirs = {
     enable = true;
