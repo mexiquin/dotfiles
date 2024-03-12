@@ -26,6 +26,12 @@ in
     ".config/nixpkgs/config.nix".text = "{allowUnfree = true;}";
   };
 
+  services.wlsunset = {
+    enable = true;
+    latitude = "33.440";
+    longitude = "-112.074";
+  };
+
   programs.home-manager.enable = true;
 
   # Create and manage standard home folders (Desktop, Downloads, Pictures, etc.)
@@ -927,7 +933,6 @@ in
       # Application Autostart
       exec-once = [
         "swww init"
-        "swww img ./nordic-wallpapers/wallpapers/nord_buildings.png"
         "nm-applet --indicator"
         "blueman-applet"
         "waybar"
