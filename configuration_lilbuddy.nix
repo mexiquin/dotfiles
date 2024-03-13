@@ -158,6 +158,7 @@
       sublime4
       nicotine-plus
       pika-backup
+      foliate
     ];
   };
  
