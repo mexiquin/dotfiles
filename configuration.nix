@@ -163,11 +163,9 @@
       meld
       gimp-with-plugins
       libreoffice-fresh
-      keepassxc
       nextcloud-client
       sublime4
       nicotine-plus
-      pika-backup
       foliate
     ];
   };
@@ -211,6 +209,7 @@
     ranger
     pcmanfm
     sddm-chili-theme
+    powershell
   ];
 
   documentation = {
