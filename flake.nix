@@ -12,14 +12,12 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
-    let
-      lib = nixpkgs.lib;
-      system = "x86_64-linux";
-    in {
-
+    
+  let
+    lib = nixpkgs.lib;
+  in {    
     nixosConfigurations = {
-      # config for nvidia (latest) setups
-      BLACKBOX-NIX = lib.nixosSystem {
+      bbboi = lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [ 
           ./configuration.nix
@@ -28,23 +26,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.quinton = import ./home.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
-
           }
         ];
-      };
-
-      # config for non-nvidia setups
-      lilbuddy = lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [ 
-	      ./configuration_lilbuddy.nix 
-	      home-manager.nixosModules.home-manager {
-		    home-manager.useGlobalPkgs = true;
-		    home-manager.useUserPackages = true;
-            home-manager.users.quinton = import ./home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-	      }
-	    ];
       };
     };
   };

@@ -1,23 +1,24 @@
-#Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./nixos/fish.nix
     ];
 
-    programs.fish = {
-      enable = true;
-      interactiveShellInit = ''
-        set fish_greeting # disable fish greeting
-      '';
-    };
+  # Set hostname  
+  networking.hostName = "bbboi"; # Define your hostname.
+  
+  # auto storage optimization
+  nix.optimise.automatic = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
-  # Bootloader.
+  # Bootloader
   boot = {
     supportedFilesystems = [ "ntfs" ];
     loader = {
@@ -30,21 +31,10 @@
       };
     };
   };
-
-  # auto storage optimization
-  nix.optimise.automatic = true;
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-
-  networking.hostName = "BLACKBOX-NIX"; # Define your hostname.
-
+ 
   services.xserver = {
     enable = true;
-    layout = "us";
+    xkb.layout = "us";
     displayManager.sddm.enable = true;
     displayManager.sddm.autoNumlock = true;
     displayManager.sddm.theme = "chili"; 
@@ -118,19 +108,9 @@
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
+    TERMINAL = "kitty";
   };
   
-  hardware = {
-    opengl.enable = true;
-    nvidia.modesetting.enable = true;
-    nvidia = {
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      nvidiaSettings = true;
-    };
-  };
-  services.xserver.videoDrivers = ["nvidia"];
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -153,21 +133,15 @@
     extraGroups = [ "networkmanager" "wheel" "video" "kvm" "libvirtd" ];
     shell = pkgs.fish;
     packages = with pkgs; [
-      sublime-merge
+      lazygit
       remmina
       gh
       rclone
       vivaldi
       vivaldi-ffmpeg-codecs
-      firefox
       meld
-      gimp-with-plugins
       libreoffice-fresh
-      keepassxc
-      nextcloud-client
-      sublime4
       nicotine-plus
-      pika-backup
       foliate
     ];
   };
@@ -179,19 +153,16 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     man-pages
-    nodejs_20
     mpv
     imv
     grim
     slurp
     unzip
-    #swaylock
     swaylock-fancy
     swayidle
     wget
     libnotify
-    neovim
-    virtiofsd
+    helix
     dconf
     neofetch
     home-manager
@@ -211,6 +182,8 @@
     ranger
     pcmanfm
     sddm-chili-theme
+    powershell
+    nil
   ];
 
   documentation = {
@@ -225,17 +198,10 @@
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 2234 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  system.stateVersion = "23.11"; # Did you read the comment?
 
   # add flake features
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
-  
-  # onedrive enable
-  #services.onedrive.enable = true;
-  
+    
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   services.devmon.enable = true;
@@ -249,8 +215,5 @@
   #virtualisation.libvirtd.enable = true;
   #programs.virt-manager.enable = true;
 
-  # allow openssl v 1.1.1
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
-}
+  system.stateVersion = "23.11";
+  }
