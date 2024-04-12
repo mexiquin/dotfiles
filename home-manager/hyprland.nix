@@ -97,7 +97,7 @@
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 1"
         "$mainMod, V, togglefloating,"
-        "$mainMod SHIFT, E, exec, rofi -show p -modi p:rofi-power-menu"
+        "$mainMod SHIFT, E, exec, wlogout"
         ",Print, exec, grim -g \"\$(slurp)\""
 
         "$mainMod, left, movefocus, l"

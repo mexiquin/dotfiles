@@ -14,7 +14,8 @@
     ./home-manager/dunst.nix
     ./home-manager/theming-gtk.nix
     ./home-manager/kitty.nix
-    ./home-manager/fuzzel.nix    
+    ./home-manager/fuzzel.nix
+    ./home-manager/wlogout.nix 
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.nord;

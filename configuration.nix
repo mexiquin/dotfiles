@@ -176,8 +176,6 @@
     networkmanagerapplet
     kitty
     xdg-desktop-portal-gtk
-    rofi-wayland
-    rofi-power-menu
     networkmanager-openconnect
     ranger
     pcmanfm
