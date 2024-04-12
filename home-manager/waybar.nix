@@ -99,7 +99,7 @@ programs.waybar = {
 
       #workspaces button {
           padding: 0 10px;
-          background-color: #${config.colorScheme.palette.base01};
+          background-color: #${config.colorScheme.palette.base00};
           color: #${config.colorScheme.palette.base05};
       }
 
@@ -109,9 +109,9 @@ programs.waybar = {
           border: none;
       }
 
-      #workspaces button:focus {
-          background: #${config.colorScheme.palette.base00};
-          border-bottom: #${config.colorScheme.palette.base06};
+      #workspaces button.active {
+          background: #${config.colorScheme.palette.base01};
+          border-bottom: 1px solid #${config.colorScheme.palette.base0B};
       }
 
       #workspaces button.urgent {
