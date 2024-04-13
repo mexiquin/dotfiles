@@ -14,7 +14,7 @@
         kb_options = "";
         kb_rules = "";
 
-        follow_mouse = "2";
+        follow_mouse = "1";
 
         touchpad = {
           natural_scroll = "yes";
