@@ -29,6 +29,19 @@
           }
         ];
       };
+
+      lilbuddy = lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./lilbuddy_config.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.quinton = import ./home.nix;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }
+        ];
+      };
     };
   };
 }
