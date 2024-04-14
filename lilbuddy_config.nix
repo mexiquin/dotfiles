@@ -177,8 +177,6 @@
     kitty
     xdg-desktop-portal-gtk
     networkmanager-openconnect
-    ranger
-    pcmanfm
     gnome.nautilus
     sddm-chili-theme
     powershell
