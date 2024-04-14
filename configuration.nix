@@ -153,7 +153,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     man-pages
-    mpv
+    vlc
     imv
     grim
     slurp
@@ -177,8 +177,7 @@
     kitty
     xdg-desktop-portal-gtk
     networkmanager-openconnect
-    ranger
-    pcmanfm
+    gnome.nautilus
     sddm-chili-theme
     powershell
     nil
