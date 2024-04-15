@@ -181,6 +181,7 @@
     sddm-chili-theme
     powershell
     nil
+    gleam
   ];
 
   documentation = {
