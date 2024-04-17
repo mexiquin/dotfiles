@@ -181,9 +181,7 @@
     sddm-chili-theme
     powershell
     nil
-    go
-    delve
-    gopls
+    gleam
   ];
 
   documentation = {
