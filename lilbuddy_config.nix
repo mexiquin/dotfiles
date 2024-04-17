@@ -35,11 +35,11 @@
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-    displayManager.sddm.enable = true;
-    displayManager.sddm.autoNumlock = true;
-    displayManager.sddm.theme = "chili"; 
-    #displayManager.lightdm.greeters.slick.enable = true;
   };
+
+  services.displayManager.sddm.theme = "chili";
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.autoNumlock = true;
 
   # enable polkit
   security.polkit.enable = true;
