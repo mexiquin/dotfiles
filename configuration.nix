@@ -182,6 +182,7 @@
     powershell
     nil
     gleam
+    nh
   ];
 
   documentation = {
