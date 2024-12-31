@@ -6,10 +6,10 @@
     settings = {
       confirm_os_window_close = 0;
       window_padding_width = 5;
-      background_opacity = "0.8";
+      background_opacity = "0.9";
     };
-    theme = "Nord";
-    font.package = pkgs.fira-code;
+    themeFile = "Nord";
+    font.package = pkgs.nerd-fonts.fira-code;
     font.name = "Fira Code Medium";
   }; 
 }

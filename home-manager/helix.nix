@@ -4,7 +4,7 @@
  programs.helix = {
     enable = true;
     settings = {
-      theme = "catppuccin_frappe";
+      theme = "base16_transparent";
     };
   };
 }

@@ -31,14 +31,16 @@
       };
     };
   };
- 
+
+  services.displayManager.sddm = {
+    enable = true;
+    theme = "chili";
+    autoNumlock = true;
+  };
+
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-    displayManager.sddm.enable = true;
-    displayManager.sddm.autoNumlock = true;
-    displayManager.sddm.theme = "chili"; 
-    #displayManager.lightdm.greeters.slick.enable = true;
   };
 
   # enable polkit
@@ -69,7 +71,7 @@
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
   hardware.bluetooth.enable = true;
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   hardware.bluetooth.settings = {
     General = {
@@ -79,7 +81,6 @@
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
-    nerdfonts
     font-awesome
     google-fonts
   ];
@@ -115,7 +116,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  # DEPRECATED sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -137,8 +138,6 @@
       remmina
       gh
       rclone
-      vivaldi
-      vivaldi-ffmpeg-codecs
       meld
       libreoffice-fresh
       nicotine-plus
@@ -153,6 +152,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     man-pages
+    firefox
     vlc
     imv
     grim
@@ -177,12 +177,12 @@
     kitty
     xdg-desktop-portal-gtk
     networkmanager-openconnect
-    gnome.nautilus
+    nautilus
     sddm-chili-theme
-    powershell
+    #powershell
     nil
     gleam
-    nh
+    nwg-displays
   ];
 
   documentation = {

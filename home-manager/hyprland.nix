@@ -1,8 +1,17 @@
 { config, ...}:
 
+let
+# TODO - I don't like this not being dynamic. I'll figure this one out some day.
+  monitorConfig = "source = /home/quinton/.config/hypr/monitors.conf";
+in
 {
  wayland.windowManager.hyprland = {
     enable = true;
+
+    extraConfig = ''
+    ${monitorConfig}
+    '';
+    
     settings = {
       env = [
           "XCURSOR_SIZE,24"
@@ -22,7 +31,7 @@
 
         sensitivity = "0";
       };
-
+      
       general = {
         gaps_in = "5";
         gaps_out = "5";
@@ -43,10 +52,10 @@
           passes = "1";
         };
 
-        drop_shadow = "yes";
-        shadow_range = "4";
-        shadow_render_power = "3";
-        "col.shadow" = "rgba(1a1a1aee)";
+        #drop_shadow = "yes";
+        #shadow_range = "4";
+        #shadow_render_power = "3";
+        #"col.shadow" = "rgba(1a1a1aee)";
       };
 
       animations = { 
@@ -69,7 +78,7 @@
       };
 
       master = {
-        new_is_master = "true";
+        #new_is_master = "true";
       };
 
       gestures = {

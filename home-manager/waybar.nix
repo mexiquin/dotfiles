@@ -26,7 +26,7 @@ programs.waybar = {
         };
 
         "clock" = {
-          format = "{:%H:%M}  ";
+          format = "{:%I:%M %p}";
           format-alt = "{:%A, %B %d, %Y (%R)}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
@@ -101,6 +101,7 @@ programs.waybar = {
           padding: 0 10px;
           background-color: #${config.colorScheme.palette.base00};
           color: #${config.colorScheme.palette.base05};
+          border-bottom: 1px solid #${config.colorScheme.palette.base00}
       }
 
       #workspaces button:hover {
