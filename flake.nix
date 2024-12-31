@@ -17,10 +17,10 @@
     lib = nixpkgs.lib;
   in {    
     nixosConfigurations = {
-      bbboi = lib.nixosSystem {
+      nuc = lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [ 
-          ./configuration.nix
+          ./nuc_configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -34,6 +34,19 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./lilbuddy_config.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.quinton = import ./home.nix;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }
+        ];
+      };
+
+      blackbox = lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./blackbox_config.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

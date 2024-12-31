@@ -101,7 +101,7 @@ in
       ];
 
       bind = [
-        "$mainMod, D, exec, fuzzel"
+        "$mainMod, D, exec, fuzzel --dpi-aware no"
         "$mainMod, RETURN, exec, kitty"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 1"
@@ -173,6 +173,7 @@ in
       windowrulev2 = [
         "bordercolor rgb(${config.colorScheme.palette.base08}),fullscreen:1"
         "stayfocused, class:^rofi$"
+        "idleinhibit fullscreen, fullscreen:1"
       ];
     };
   };
