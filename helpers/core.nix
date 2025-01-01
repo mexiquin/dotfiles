@@ -184,6 +184,8 @@
     nwg-displays
   ];
 
+  services.flatpak.enable = true;
+
   documentation = {
     dev.enable = true;
     man.generateCaches = true;
