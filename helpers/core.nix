@@ -142,6 +142,7 @@
       libreoffice-fresh
       nicotine-plus
       foliate
+      chromium
     ];
   };
  
