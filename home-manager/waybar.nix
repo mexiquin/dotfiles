@@ -25,6 +25,10 @@ programs.waybar = {
           icon-size = 18;
         };
 
+        "pulseaudio" = {
+          on-click = "pavucontrol";  
+        };
+
         "clock" = {
           format = "{:%I:%M %p}";
           format-alt = "{:%A, %B %d, %Y (%R)}";

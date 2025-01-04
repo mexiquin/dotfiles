@@ -183,6 +183,7 @@
     nil
     gleam
     nwg-displays
+    pavucontrol
   ];
 
   services.flatpak.enable = true;
