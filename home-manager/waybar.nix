@@ -26,7 +26,12 @@ programs.waybar = {
         };
 
         "pulseaudio" = {
-          on-click = "pavucontrol";  
+            format = "{icon}  {volume}%";
+            format-muted = " ";
+            format-icons = {
+                default = [" " "  "];
+            };
+            on-click = "pavucontrol";
         };
 
         "clock" = {
