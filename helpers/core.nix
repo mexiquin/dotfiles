@@ -178,12 +178,12 @@
     kitty
     xdg-desktop-portal-gtk
     networkmanager-openconnect
-    nautilus
     sddm-chili-theme
     nil
     gleam
     nwg-displays
     pavucontrol
+    mc
   ];
 
   services.flatpak.enable = true;
