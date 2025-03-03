@@ -5,9 +5,6 @@
     [ # Include the results of the hardware scan.
       ./nixos/fish.nix
     ];
-
-  # NOT NEEDED - set in individual device config  
-  # networking.hostName = "bbboi"; # Define your hostname.
   
   # auto storage optimization
   nix.optimise.automatic = true;
@@ -31,34 +28,67 @@
     };
   };
 
-  services.displayManager.sddm = {
-    enable = true;
-    theme = "chili";
-    autoNumlock = true;
-  };
-
   services.xserver = {
     enable = true;
-    xkb.layout = "us";
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
-  # enable polkit
-  security.polkit.enable = true;
+  environment.gnome.excludePackages = with pkgs; [
+  orca
+  #evince
+  # file-roller
+  geary
+  gnome-disk-utility
+  # seahorse
+  # sushi
+  # sysprof
+  #
+  # gnome-shell-extensions
+  #
+  # adwaita-icon-theme
+  # nixos-background-info
+  #gnome-backgrounds
+  # gnome-bluetooth
+  # gnome-color-manager
+  # gnome-control-center
+  # gnome-shell-extensions
+  gnome-tour # GNOME Shell detects the .desktop file on first log-in.
+  gnome-user-docs
+  # glib # for gsettings program
+  # gnome-menus
+  # gtk3.out # for gtk-launch program
+  # xdg-user-dirs # Update user dirs as described in https://freedesktop.org/wiki/Software/xdg-user-dirs/
+  # xdg-user-dirs-gtk # Used to create the default bookmarks
+  #
+  #baobab
+  epiphany
+  gnome-text-editor
+  #gnome-calculator
+  #gnome-calendar
+  #gnome-characters
+  # gnome-clocks
+  #gnome-console
+  #gnome-contacts
+  #gnome-font-viewer
+  #gnome-logs
+  #gnome-maps
+  #gnome-music
+  # gnome-system-monitor
+  #gnome-weather
+  # loupe
+  # nautilus
+  #gnome-connections
+  #simple-scan
+  #snapshot
+  #totem
+  yelp
+  gnome-software
+];
 
-  systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-          Type = "simple";
-          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-          Restart = "on-failure";
-          RestartSec = 1;
-          TimeoutStopSec = 10;
-        };
-    };
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
   };
 
   # Enable networking
@@ -67,8 +97,6 @@
   # Set your time zone.
   time.timeZone = "America/Phoenix";
   
-  services.blueman.enable = true;
-  services.gnome.gnome-keyring.enable = true;
   hardware.bluetooth.enable = true;
   services.libinput.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -78,11 +106,7 @@
     };
   };
 
-  fonts.fontDir.enable = true;
-  fonts.packages = with pkgs; [
-    font-awesome
-    google-fonts
-  ];
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -97,20 +121,8 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  # enable hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  security.pam.services.swaylock = {};
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-    TERMINAL = "kitty";
-  };
-  
+ 
+   
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -142,7 +154,6 @@
       nicotine-plus
       foliate
       chromium
-      vivaldi
     ];
   };
  
@@ -153,38 +164,21 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     man-pages
-    firefox
+    librewolf
     vlc
-    imv
-    grim
-    slurp
     unzip
-    swaylock-fancy
-    swayidle
     wget
-    libnotify
     helix
-    dconf
-    neofetch
     home-manager
     htop
     tmux
     tree
     git
-    dunst
-    swww
-    brightnessctl
-    networkmanagerapplet
-    kitty
-    xdg-desktop-portal-gtk
     networkmanager-openconnect
-    sddm-chili-theme
-    nil
+    openconnect
     gleam
-    nwg-displays
-    pavucontrol
-    mc
   ];
+
 
   services.flatpak.enable = true;
 
@@ -198,24 +192,16 @@
 
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 2234 ];
+  # networking.firewall.allowedTCPPorts = [ 2234 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
   # add flake features
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
-    
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
-  services.devmon.enable = true;
 
   # enable pwfeedback
   security.sudo.extraConfig = ''
     Defaults    pwfeedback
   '';
-
-  # virt-manager configuration
-  #virtualisation.libvirtd.enable = true;
-  #programs.virt-manager.enable = true;
 
   system.stateVersion = "23.11";
   }
