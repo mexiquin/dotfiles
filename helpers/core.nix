@@ -73,7 +73,7 @@
   #gnome-font-viewer
   #gnome-logs
   #gnome-maps
-  #gnome-music
+  gnome-music
   # gnome-system-monitor
   #gnome-weather
   # loupe
@@ -81,7 +81,7 @@
   #gnome-connections
   #simple-scan
   #snapshot
-  #totem
+  totem
   yelp
   gnome-software
 ];
@@ -177,6 +177,7 @@
     networkmanager-openconnect
     openconnect
     gleam
+    mc
   ];
 
 
@@ -187,6 +188,8 @@
     man.generateCaches = true;
     nixos.includeAllModules = true;
   };
+  
+  home-manager.backupFileExtension = "backup";
 
   # List services that you want to enable:
 
