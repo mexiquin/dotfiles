@@ -178,7 +178,8 @@
     openconnect
     gleam
     mc
-  ];
+    dbeaver-bin
+   ];
 
 
   services.flatpak.enable = true;
