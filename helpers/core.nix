@@ -179,10 +179,12 @@
     gleam
     mc
     dbeaver-bin
+    vscode
    ];
 
 
   services.flatpak.enable = true;
+  virtualisation.docker.enable = true;
 
   documentation = {
     dev.enable = true;
