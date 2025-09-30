@@ -28,64 +28,37 @@
     };
   };
 
-  services.xserver = {
+  services.displayManager.sddm = {
     enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    theme = "chili";
+    autoNumlock = true;
   };
 
-  environment.gnome.excludePackages = with pkgs; [
-  orca
-  #evince
-  # file-roller
-  geary
-  gnome-disk-utility
-  # seahorse
-  # sushi
-  # sysprof
-  #
-  # gnome-shell-extensions
-  #
-  # adwaita-icon-theme
-  # nixos-background-info
-  #gnome-backgrounds
-  # gnome-bluetooth
-  # gnome-color-manager
-  # gnome-control-center
-  # gnome-shell-extensions
-  gnome-tour # GNOME Shell detects the .desktop file on first log-in.
-  gnome-user-docs
-  # glib # for gsettings program
-  # gnome-menus
-  # gtk3.out # for gtk-launch program
-  # xdg-user-dirs # Update user dirs as described in https://freedesktop.org/wiki/Software/xdg-user-dirs/
-  # xdg-user-dirs-gtk # Used to create the default bookmarks
-  #
-  #baobab
-  epiphany
-  gnome-text-editor
-  #gnome-calculator
-  #gnome-calendar
-  #gnome-characters
-  # gnome-clocks
-  #gnome-console
-  #gnome-contacts
-  #gnome-font-viewer
-  #gnome-logs
-  #gnome-maps
-  gnome-music
-  # gnome-system-monitor
-  #gnome-weather
-  # loupe
-  # nautilus
-  #gnome-connections
-  #simple-scan
-  #snapshot
-  totem
-  yelp
-  gnome-software
-];
+  services.xserver = {
+    enable = true;
+    #displayManager.gdm.enable = true;
+    #desktopManager.gnome.enable = true;
+  };
 
+  #enable polkit
+  security.polkit.enable = true;
+
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+    };
+};
+ 
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -96,7 +69,10 @@
 
   # Set your time zone.
   time.timeZone = "America/Phoenix";
-  
+ 
+  services.blueman.enable = true;
+  services.gnome.gnome-keyring.enable = true; 
+
   hardware.bluetooth.enable = true;
   services.libinput.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -106,6 +82,24 @@
     };
   };
 
+ fonts.fontDir.enable = true;
+ fonts.packages = with pkgs; [
+  font-awesome
+  google-fonts
+ ];
+
+ # enable hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  security.pam.services.swaylock = {};
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+    TERMINAL = "kitty";
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -127,7 +121,6 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  # DEPRECATED sound.enable = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -164,7 +157,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     man-pages
-    librewolf
+    firefox
     vlc
     unzip
     wget
@@ -176,10 +169,25 @@
     git
     networkmanager-openconnect
     openconnect
-    gleam
     mc
-    dbeaver-bin
-    vscode
+    imv
+    grim 
+    slurp
+    swaylock-fancy
+    swayidle
+    libnotify
+    dconf
+    fastfetch
+    dunst
+    swww
+    brightnessctl
+    networkmanagerapplet
+    kitty
+    xdg-desktop-portal-gtk
+    sddm-chili-theme
+    nil
+    nwg-displays
+    pavucontrol
    ];
 
 
@@ -201,6 +209,10 @@
   # networking.firewall.allowedTCPPorts = [ 2234 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+  services.devmon.enable = true; 
+
   # add flake features
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
 
@@ -210,4 +222,4 @@
   '';
 
   system.stateVersion = "23.11";
-  }
+}

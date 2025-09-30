@@ -9,7 +9,7 @@ in
     enable = true;
 
     extraConfig = ''
-    ${monitorConfig}
+    #${monitorConfig}
     '';
     
     settings = {
@@ -38,7 +38,7 @@ in
         border_size = "1";
         "col.active_border" = "rgba(${config.colorScheme.palette.base0B}aa)";
         "col.inactive_border" = "rgba(${config.colorScheme.palette.base02}aa)";
-
+        gesture = "3, horizontal, workspace";
         layout = "master";
 
         allow_tearing = "false";
@@ -79,10 +79,6 @@ in
 
       master = {
         #new_is_master = "true";
-      };
-
-      gestures = {
-        workspace_swipe = "true";
       };
 
       misc = {

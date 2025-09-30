@@ -4,21 +4,21 @@
   # manage.
 
   imports = [
-     #inputs.nix-colors.homeManagerModules.default
-    #./home-manager/wlsunset.nix
-    # ./home-manager/rofi.nix
+    inputs.nix-colors.homeManagerModules.default
+    ./home-manager/wlsunset.nix
+    ./home-manager/rofi.nix
     ./home-manager/helix.nix
     ./home-manager/git.nix
-    # ./home-manager/waybar.nix
-    # ./home-manager/hyprland.nix
-    # ./home-manager/dunst.nix
-    # ./home-manager/theming-gtk.nix
-    # ./home-manager/kitty.nix
-    # ./home-manager/fuzzel.nix
-    # ./home-manager/wlogout.nix 
+    ./home-manager/waybar.nix
+    ./home-manager/hyprland.nix
+    ./home-manager/dunst.nix
+    ./home-manager/theming-gtk.nix
+    ./home-manager/kitty.nix
+    ./home-manager/fuzzel.nix
+    ./home-manager/wlogout.nix 
   ];
 
-   #colorScheme = inputs.nix-colors.colorSchemes.nord;
+   colorScheme = inputs.nix-colors.colorSchemes.nord;
 
   home.username = "quinton";
   home.homeDirectory = "/home/quinton";
