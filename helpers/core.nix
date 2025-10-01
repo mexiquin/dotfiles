@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./nixos/fish.nix
     ];
   
@@ -30,15 +30,10 @@
 
   services.displayManager.sddm = {
     enable = true;
-    #theme = "chili";
     autoNumlock = true;
   };
 
-  services.xserver = {
-    enable = true;
-    #displayManager.gdm.enable = true;
-    #desktopManager.gnome.enable = true;
-  };
+  services.xserver.enable = true;
 
   #enable polkit
   security.polkit.enable = true;
@@ -162,8 +157,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     man-pages
-    firefox
     vlc
+    firefox
     unzip
     wget
     helix
@@ -195,6 +190,13 @@
 
 
   services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
   virtualisation.docker.enable = true;
 
   documentation = {
@@ -217,8 +219,8 @@
   services.devmon.enable = true; 
 
   # add flake features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
   # enable pwfeedback
   security.sudo.extraConfig = ''
     Defaults    pwfeedback

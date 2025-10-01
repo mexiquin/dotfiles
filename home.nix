@@ -34,10 +34,26 @@
 
   programs.home-manager.enable = true;
 
-  # Create and manage standard home folders (Desktop, Downloads, Pictures, etc.)
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
+
+  # set default applications
+  xdg = {
+    # Create and manage standard home folders (Desktop, Downloads, Pictures, etc.)
+    userDirs = {
+      enable = true;
+      createDirectories = true; 
+    };
+
+    # set default applications
+    mime.enable = true;
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "x-scheme-handler/http" = ["firefox.desktop"];
+        "x-scheme-handler/https" = ["firefox.desktop"];
+        "x-scheme-handler/about" = ["firefox.desktop"];
+        "x-scheme-handler/unknown" = ["firefox.desktop"];
+      };
+    };
   };
 
   # ====== bash config ======
