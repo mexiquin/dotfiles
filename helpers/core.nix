@@ -30,7 +30,7 @@
 
   services.displayManager.sddm = {
     enable = true;
-    theme = "chili";
+    #theme = "chili";
     autoNumlock = true;
   };
 
@@ -65,8 +65,13 @@
   };
 
   # Enable networking
-  networking.networkmanager.enable = true;
-
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openconnect
+    ];
+  };
+  
   # Set your time zone.
   time.timeZone = "America/Phoenix";
  
@@ -94,7 +99,7 @@
     xwayland.enable = true;
   };
 
-  security.pam.services.swaylock = {};
+ security.pam.services.swaylock = {};
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
@@ -167,7 +172,6 @@
     tmux
     tree
     git
-    networkmanager-openconnect
     openconnect
     mc
     imv
@@ -184,7 +188,6 @@
     networkmanagerapplet
     kitty
     xdg-desktop-portal-gtk
-    sddm-chili-theme
     nil
     nwg-displays
     pavucontrol
