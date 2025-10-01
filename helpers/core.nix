@@ -28,13 +28,9 @@
     };
   };
 
-  services.displayManager.sddm = {
-    enable = true;
-    autoNumlock = true;
-  };
-
   services.xserver.enable = true;
-
+  services.xserver.displayManager.startx.enable = true;
+  
   #enable polkit
   security.polkit.enable = true;
 
@@ -91,6 +87,7 @@
  # enable hyprland
   programs.hyprland = {
     enable = true;
+    withUWSM = true;
     xwayland.enable = true;
   };
 
@@ -136,7 +133,7 @@
     isNormalUser = true;
     description = "Quinton Jasper";
     extraGroups = [ "networkmanager" "wheel" "video" "kvm" "libvirtd" ];
-    shell = pkgs.fish;
+    shell = pkgs.bash;
     packages = with pkgs; [
       lazygit
       remmina
@@ -186,8 +183,7 @@
     nil
     nwg-displays
     pavucontrol
-   ];
-
+  ];
 
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {

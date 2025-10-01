@@ -62,6 +62,12 @@
     enableCompletion = true;
     shellAliases = {
       sudo = "sudo ";
+      vim = "hx ";
     };
+    profileExtra = ''
+      if uwsm check may-start; then
+        exec uwsm start hyprland-uwsm.desktop
+      fi
+    '';
   };
 }
