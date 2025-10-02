@@ -159,6 +159,7 @@
     unzip
     wget
     helix
+    neovim
     home-manager
     htop
     tmux
