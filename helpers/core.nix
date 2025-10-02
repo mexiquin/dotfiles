@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./nixos/fish.nix
+      ./nixos/zsh.nix
     ];
   
   # auto storage optimization
@@ -133,7 +133,7 @@
     isNormalUser = true;
     description = "Quinton Jasper";
     extraGroups = [ "networkmanager" "wheel" "video" "kvm" "libvirtd" ];
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
     packages = with pkgs; [
       lazygit
       remmina

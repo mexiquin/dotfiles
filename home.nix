@@ -56,8 +56,7 @@
     };
   };
 
-  # ====== bash config ======
-  programs.bash = {
+  programs.zsh = {
     enable = true;
     enableCompletion = true;
     shellAliases = {
@@ -70,4 +69,5 @@
       fi
     '';
   };
+
 }
