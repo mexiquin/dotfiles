@@ -1,11 +1,10 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      ./nixos/zsh.nix
-    ];
-  
+  imports = [
+    ./nixos/zsh.nix
+  ];
+
   # auto storage optimization
   nix.optimise.automatic = true;
   nix.gc = {
@@ -14,7 +13,7 @@
     options = "--delete-older-than 30d";
   };
 
-  # Bootloader
+  # Use grub to enable detection of windows installs (if needed)
   boot = {
     supportedFilesystems = [ "ntfs" ];
     loader = {
@@ -30,7 +29,7 @@
 
   services.xserver.enable = true;
   services.xserver.displayManager.startx.enable = true;
-  
+
   #enable polkit
   security.polkit.enable = true;
 
@@ -41,15 +40,15 @@
       wants = [ "graphical-session.target" ];
       after = [ "graphical-session.target" ];
       serviceConfig = {
-          Type = "simple";
-          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-          Restart = "on-failure";
-          RestartSec = 1;
-          TimeoutStopSec = 10;
-        };
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
     };
-};
- 
+  };
+
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -62,12 +61,12 @@
       networkmanager-openconnect
     ];
   };
-  
+
   # Set your time zone.
   time.timeZone = "America/Phoenix";
- 
+
   services.blueman.enable = true;
-  services.gnome.gnome-keyring.enable = true; 
+  services.gnome.gnome-keyring.enable = true;
 
   hardware.bluetooth.enable = true;
   services.libinput.enable = true;
@@ -78,20 +77,20 @@
     };
   };
 
- fonts.fontDir.enable = true;
- fonts.packages = with pkgs; [
-  font-awesome
-  google-fonts
- ];
+  fonts.fontDir.enable = true;
+  fonts.packages = with pkgs; [
+    font-awesome
+    google-fonts
+  ];
 
- # enable hyprland
+  # enable hyprland
   programs.hyprland = {
     enable = true;
     withUWSM = true;
     xwayland.enable = true;
   };
 
- security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
@@ -112,8 +111,7 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
- 
-   
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -132,27 +130,31 @@
   users.users.quinton = {
     isNormalUser = true;
     description = "Quinton Jasper";
-    extraGroups = [ "networkmanager" "wheel" "video" "kvm" "libvirtd" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      lazygit
-      remmina
-      gh
-      rclone
-      meld
-      libreoffice-fresh
-      nicotine-plus
-      foliate
-      chromium
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "kvm"
+      "libvirtd"
     ];
+    shell = pkgs.zsh;
   };
- 
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    gh
+    remmina
+    rclone
+    meld
+    chromium
+    foliate
+    nicotine-plus
+    libreoffice-fresh
+    lazygit
     man-pages
     vlc
     firefox
@@ -168,7 +170,7 @@
     openconnect
     mc
     imv
-    grim 
+    grim
     slurp
     swaylock-fancy
     swayidle
@@ -201,11 +203,10 @@
     man.generateCaches = true;
     nixos.includeAllModules = true;
   };
-  
+
   home-manager.backupFileExtension = "backup";
 
   # List services that you want to enable:
-
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 2234 ];
@@ -213,11 +214,14 @@
 
   services.gvfs.enable = true;
   services.udisks2.enable = true;
-  services.devmon.enable = true; 
+  services.devmon.enable = true;
 
   # add flake features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # enable pwfeedback
   security.sudo.extraConfig = ''
     Defaults    pwfeedback
