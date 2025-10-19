@@ -1,5 +1,7 @@
+{ inputs, ... }:
+
 let
-  selected-image = "../wallpapers/octopus.jpg";
+  selected-image = "${inputs.wallpapers}/octopus.jpg";
 
 in
 {
@@ -7,11 +9,13 @@ in
     enable = true;
     settings = {
 
+      splash = false;
+
       preload = [
         selected-image
       ];
 
-      wallpaper = selected-image;
+      wallpaper = "," + selected-image;
 
     };
   };
