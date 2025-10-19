@@ -90,7 +90,15 @@
     xwayland.enable = true;
   };
 
-  security.pam.services.swaylock = { };
+  # enable use of thunar for files
+  programs.thunar.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+    thunar-volman
+  ];
+  programs.xfconf.enable = true;
+
+  security.pam.services.hyprlock = {};
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
@@ -172,8 +180,6 @@
     imv
     grim
     slurp
-    swaylock-fancy
-    swayidle
     libnotify
     dconf
     fastfetch
@@ -214,7 +220,8 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   services.devmon.enable = true;
-
+  services.tumbler.enable = true;
+  
   # add flake features
   nix.settings.experimental-features = [
     "nix-command"

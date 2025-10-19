@@ -17,6 +17,8 @@
     ./home-manager/fuzzel.nix
     ./home-manager/wlogout.nix
     ./home-manager/hyprpaper.nix
+    ./home-manager/hyprlock.nix
+    ./home-manager/hypridle.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.nord;

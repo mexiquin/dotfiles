@@ -109,7 +109,7 @@ in
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
-        "$mainMod, L, exec, swaylock-fancy"
+        "$mainMod, L, exec, hyprlock"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
@@ -158,12 +158,9 @@ in
 
       # Application Autostart
       exec-once = [
-        "swww init"
         "nm-applet --indicator"
         "blueman-applet"
         "waybar"
-        "nextcloud --background"
-        "swayidle -w timeout 300 swaylock-fancy"
       ];
 
       windowrulev2 = [
