@@ -1,9 +1,0 @@
-[submodule "home/.icons/MacOSMOD"]
-	path = home/.icons/MacOSMOD
-	url = https://github.com/mexiquin/MacOSMOD.git
-[submodule "wallpaper/Pictures/bg"]
-	path = wallpaper/Pictures/bg
-	url = https://gitlab.com/exorcist365/wallpapers.git
-[submodule "wallpapers"]
-	path = wallpapers
-	url = https://gitlab.com/exorcist365/wallpapers.git
