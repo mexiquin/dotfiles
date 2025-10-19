@@ -178,7 +178,6 @@
     dconf
     fastfetch
     dunst
-    swww
     brightnessctl
     networkmanagerapplet
     kitty
