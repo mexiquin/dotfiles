@@ -15,10 +15,11 @@
     ./home-manager/theming-gtk.nix
     ./home-manager/kitty.nix
     ./home-manager/fuzzel.nix
-    ./home-manager/wlogout.nix 
+    ./home-manager/wlogout.nix
+    ./home-manager/hyprpaper.nix
   ];
 
-   colorScheme = inputs.nix-colors.colorSchemes.nord;
+  colorScheme = inputs.nix-colors.colorSchemes.nord;
 
   home.username = "quinton";
   home.homeDirectory = "/home/quinton";
@@ -34,13 +35,12 @@
 
   programs.home-manager.enable = true;
 
-
   # set default applications
   xdg = {
     # Create and manage standard home folders (Desktop, Downloads, Pictures, etc.)
     userDirs = {
       enable = true;
-      createDirectories = true; 
+      createDirectories = true;
     };
 
     # set default applications
@@ -48,10 +48,10 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "x-scheme-handler/http" = ["firefox.desktop"];
-        "x-scheme-handler/https" = ["firefox.desktop"];
-        "x-scheme-handler/about" = ["firefox.desktop"];
-        "x-scheme-handler/unknown" = ["firefox.desktop"];
+        "x-scheme-handler/http" = [ "firefox.desktop" ];
+        "x-scheme-handler/https" = [ "firefox.desktop" ];
+        "x-scheme-handler/about" = [ "firefox.desktop" ];
+        "x-scheme-handler/unknown" = [ "firefox.desktop" ];
       };
     };
   };
