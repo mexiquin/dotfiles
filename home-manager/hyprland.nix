@@ -97,12 +97,13 @@ in
       ];
 
       bind = [
-        "$mainMod, D, exec, fuzzel --dpi-aware no"
+        "$mainMod, D, exec, rofi -show drun"
         "$mainMod, RETURN, exec, kitty"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 1"
         "$mainMod, V, togglefloating,"
-        "$mainMod SHIFT, E, exec, wlogout"
+        "$mainMod SHIFT, E, exec, rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/reboot/suspend'"
+        
         ",Print, exec, grim -g \"\$(slurp)\""
 
         "$mainMod, left, movefocus, l"

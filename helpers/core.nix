@@ -191,6 +191,7 @@
     nil
     nwg-displays
     pavucontrol
+    rofi-power-menu
   ];
 
   services.flatpak.enable = true;

@@ -57,7 +57,7 @@ programs.waybar = {
         "custom/power" = {
           format = " ⏻ ";
           tooltip = false;
-          on-click = "rofi -show p -modi p:rofi-power-menu";
+          on-click = "rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/reboot/suspend'";
         };
 
         "actions" = {
