@@ -7,5 +7,5 @@
     ./helpers/nixos/nvidia.nix
   ];
 
-  networking.hostName = "BLACKBOX"; # Define your hostname.
+  networking.hostName = "blackbox"; # Define your hostname.
 }

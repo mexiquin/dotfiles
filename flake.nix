@@ -10,7 +10,7 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
     wallpapers = {
-      url = "gitlab:exorcist365/wallpapers";
+      url = "git+https://codeberg.org/exorcist/wallpapers.git";
       flake = false;
     };
   };
