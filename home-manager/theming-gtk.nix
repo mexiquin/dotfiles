@@ -1,8 +1,16 @@
 { pkgs, ... }:
-
+let
+  themePkgs = pkgs.gruvbox-gtk-theme.override {
+        colorVariants = ["dark"];
+        sizeVariants = ["standard"];
+        themeVariants = ["default"];
+        tweakVariants = ["black"];
+        iconVariants = ["Dark"];
+      };
+in 
 {
-  
- # ====== cursor theme config ======
+
+  # ====== cursor theme config ======
   home.pointerCursor = {
     package = pkgs.quintom-cursor-theme;
     gtk.enable = true;
@@ -14,13 +22,13 @@
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.papirus-nord.override { accent = "frostblue3"; };
-      name = "Papirus-Dark";
+      package = themePkgs;
+      name = "Gruvbox-Dark";
     };
 
     theme = {
-      package = pkgs.nordic;
-      name = "Nordic-bluish-accent";
+      package = themePkgs;
+      name = "Gruvbox-Dark";
     };
 
   };

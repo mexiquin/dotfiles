@@ -21,7 +21,7 @@
     ./home-manager/hypridle.nix
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.nord;
+  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
 
   home.username = "quinton";
   home.homeDirectory = "/home/quinton";

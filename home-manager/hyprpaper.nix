@@ -1,7 +1,7 @@
 { inputs, ... }:
 
 let
-  selected-image = "${inputs.wallpapers}/octopus.jpg";
+  selected-image = "${inputs.wallpapers}/gruvbox/houseonthesideofalake.jpg";
 
 in
 {

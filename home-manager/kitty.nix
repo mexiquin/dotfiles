@@ -8,7 +8,7 @@
       window_padding_width = 5;
       background_opacity = "0.9";
     };
-    themeFile = "Nord";
+    themeFile = "GruvboxMaterialDarkHard";
     font.package = pkgs.nerd-fonts.fira-code;
     font.name = "Fira Code Medium";
   }; 
