@@ -9,7 +9,7 @@ let
 
   iconPkg = pkgs.colloid-icon-theme.override {
     schemeVariants = [ "gruvbox" ];
-    colorVariants = [ "green" ];
+    colorVariants = [ "orange" ];
   };
 in
 {
@@ -27,7 +27,7 @@ in
     enable = true;
     iconTheme = {
       package = iconPkg;
-      name = "Colloid-Green-Gruvbox-Dark";
+      name = "Colloid-Orange-Gruvbox-Dark";
     };
 
     theme = {
