@@ -27,6 +27,8 @@
     };
   };
 
+  services.getty.autologinUser = "quinton";
+
   services.xserver.enable = true;
   services.xserver.displayManager.startx.enable = true;
 
