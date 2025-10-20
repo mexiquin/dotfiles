@@ -3,7 +3,7 @@ let
   themePkg = pkgs.colloid-gtk-theme.override {
     colorVariants = [ "dark" ];
     sizeVariants = [ "standard" ];
-    themeVariants = [ "green" ];
+    themeVariants = [ "orange" ];
     tweaks = [ "gruvbox" ];
   };
 
@@ -32,7 +32,7 @@ in
 
     theme = {
       package = themePkg;
-      name = "Colloid-Green-Dark-Gruvbox";
+      name = "Colloid-Orange-Dark-Gruvbox";
     };
 
   };
