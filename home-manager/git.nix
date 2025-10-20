@@ -3,7 +3,11 @@
 {
   programs.git = {
     enable = true;
-    userName = "Quinton Jasper";
-    userEmail = "dropatuningmetal@gmail.com";
+    settings = {
+      user = {
+        email = "dropatuningmetal@gmail.com";
+        name = "Quinton Jasper";
+      };
+    };
   };
 }
