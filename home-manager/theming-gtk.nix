@@ -1,13 +1,17 @@
 { pkgs, ... }:
 let
-  themePkgs = pkgs.gruvbox-gtk-theme.override {
-        colorVariants = ["dark"];
-        sizeVariants = ["standard"];
-        themeVariants = ["default"];
-        tweakVariants = ["black"];
-        iconVariants = ["Dark"];
-      };
-in 
+  themePkg = pkgs.colloid-gtk-theme.override {
+    colorVariants = [ "dark" ];
+    sizeVariants = [ "standard" ];
+    themeVariants = [ "green" ];
+    tweaks = [ "gruvbox" ];
+  };
+
+  iconPkg = pkgs.colloid-icon-theme.override {
+    schemeVariants = [ "gruvbox" ];
+    colorVariants = [ "green" ];
+  };
+in
 {
 
   # ====== cursor theme config ======
@@ -22,13 +26,13 @@ in
   gtk = {
     enable = true;
     iconTheme = {
-      package = themePkgs;
-      name = "Gruvbox-Dark";
+      package = iconPkg;
+      name = "Colloid-Green-Gruvbox-Dark";
     };
 
     theme = {
-      package = themePkgs;
-      name = "Gruvbox-Dark";
+      package = themePkg;
+      name = "Colloid-Green-Dark-Gruvbox";
     };
 
   };
