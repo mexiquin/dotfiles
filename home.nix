@@ -19,6 +19,7 @@
     ./home-manager/hyprpaper.nix
     ./home-manager/hyprlock.nix
     ./home-manager/hypridle.nix
+    ./home-manager/btop.nix 
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
