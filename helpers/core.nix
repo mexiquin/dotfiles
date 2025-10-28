@@ -194,6 +194,7 @@
     nwg-displays
     pavucontrol
     rofi-power-menu
+    protonvpn-gui
   ];
 
   services.flatpak.enable = true;
