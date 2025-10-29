@@ -1,13 +1,11 @@
 { inputs, ... }:
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
 
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ./home-manager/wlsunset.nix
     ./home-manager/rofi.nix
-    ./home-manager/helix.nix
+ #   ./home-manager/helix.nix
     ./home-manager/git.nix
     ./home-manager/waybar.nix
     ./home-manager/hyprland.nix
@@ -19,7 +17,7 @@
     ./home-manager/hyprpaper.nix
     ./home-manager/hyprlock.nix
     ./home-manager/hypridle.nix
-    ./home-manager/btop.nix 
+    ./home-manager/btop.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
@@ -35,8 +33,6 @@
   home.file = {
     ".config/nixpkgs/config.nix".text = "{allowUnfree = true;}";
   };
-
-  programs.home-manager.enable = true;
 
   # set default applications
   xdg = {
@@ -64,7 +60,6 @@
     enableCompletion = true;
     shellAliases = {
       sudo = "sudo ";
-      vim = "hx ";
     };
     profileExtra = ''
       if uwsm check may-start; then

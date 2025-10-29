@@ -1,8 +1,8 @@
-{ pkgs, ... }:
-
+{ pkgs, inputs, ... }:
 {
   imports = [
-    ./nixos/zsh.nix
+    ./helpers/nixos/zsh.nix
+    inputs.home-manager.nixosModules.default
   ];
 
   # auto storage optimization
@@ -100,7 +100,7 @@
   ];
   programs.xfconf.enable = true;
 
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
@@ -170,9 +170,6 @@
     firefox
     unzip
     wget
-    helix
-    neovim
-    home-manager
     htop
     tmux
     tree
@@ -207,13 +204,13 @@
   };
   virtualisation.docker.enable = true;
 
-  documentation = {
-    dev.enable = true;
-    man.generateCaches = true;
-    nixos.includeAllModules = true;
+  home-manager = {
+    backupFileExtension = "backup";
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "quinton" = import ./home.nix;
+    };
   };
-
-  home-manager.backupFileExtension = "backup";
 
   # List services that you want to enable:
 
@@ -225,7 +222,7 @@
   services.udisks2.enable = true;
   services.devmon.enable = true;
   services.tumbler.enable = true;
-  
+
   # add flake features
   nix.settings.experimental-features = [
     "nix-command"
@@ -236,6 +233,46 @@
   security.sudo.extraConfig = ''
     Defaults    pwfeedback
   '';
+
+  # config for neovim
+  programs.nvf = {
+    enable = true;
+
+    settings = {
+      vim = {
+
+        viAlias = true;
+        vimAlias = true;
+        theme.enable = true;
+        theme.name = "gruvbox";
+        theme.style = "dark";
+        theme.transparent = true;
+        lineNumberMode = "number";
+
+        statusline.lualine.enable = true;
+        telescope.enable = true;
+        autocomplete.nvim-cmp.enable = true;
+        lsp.enable = true;
+
+        terminal.toggleterm = {
+          enable = true;
+          lazygit.enable = true;
+          
+        };
+        
+        languages = {
+          enableTreesitter = true;
+
+          nix.enable = true;
+          python.enable = true;
+          rust.enable = true;
+          ts.enable = true;
+          html.enable = true;
+          css.enable = true;
+        };
+      };
+    };
+  };
 
   system.stateVersion = "23.11";
 }

@@ -2,16 +2,22 @@
   description = "Quinton's Tiling Desktop Flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
+
     wallpapers = {
       url = "git+https://codeberg.org/exorcist/wallpapers.git";
       flake = false;
+    };
+
+    nvf = {
+      url = "github:NotAShelf/nvf/v0.8";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -19,48 +25,37 @@
     {
       self,
       nixpkgs,
-      home-manager,
+      nvf,
       ...
     }@inputs:
 
-    let
-      lib = nixpkgs.lib;
-      homemanager = home-manager.nixosModules.home-manager;
-      hm-config = {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.quinton = import ./home.nix;
-        home-manager.extraSpecialArgs = { inherit inputs; };
-      };
-
-    in
     {
       nixosConfigurations = {
-        nuc = lib.nixosSystem {
+
+        nuc = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
             ./nuc_configuration.nix
-            homemanager
-            hm-config
-
+            inputs.nvf.nixosModules.default
+            inputs.home-manager.nixosModules.default
           ];
         };
 
-        lilbuddy = lib.nixosSystem {
+        lilbuddy = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
             ./lilbuddy_config.nix
-            homemanager
-            hm-config
+            inputs.nvf.nixosModules.default
+            inputs.home-manager.nixosModules.default
           ];
         };
 
-        blackbox = lib.nixosSystem {
+        blackbox = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
             ./blackbox_config.nix
-            homemanager
-            hm-config
+            inputs.nvf.nixosModules.default
+            inputs.home-manager.nixosModules.default
           ];
         };
       };

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./helpers/core.nix
+    ./core.nix
     ./helpers/hardware-configs/nuc-hardware-config.nix
   ];
 

@@ -12,7 +12,6 @@
   
     shellAliases = {
       sudo = "sudo ";
-      vim = "hx ";
       lgit = "lazygit";
     };
     

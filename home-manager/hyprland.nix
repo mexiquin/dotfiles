@@ -96,6 +96,11 @@ in
       bindr = [
       ];
 
+      unbind = [
+        "SUPER, J"
+        "SUPER, K"
+      ];
+
       bind = [
         "$mainMod, D, exec, rofi -show drun"
         "$mainMod, RETURN, exec, kitty"
@@ -106,11 +111,10 @@ in
         
         ",Print, exec, grim -g \"\$(slurp)\""
 
-        "$mainMod, left, movefocus, l"
-        "$mainMod, right, movefocus, r"
-        "$mainMod, up, movefocus, u"
-        "$mainMod, down, movefocus, d"
-        "$mainMod, L, exec, hyprlock"
+        "$mainMod, h, movefocus, l"
+        "$mainMod, l, movefocus, r"
+        "$mainMod, k, movefocus, u"
+        "$mainMod, j, movefocus, d"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
@@ -146,10 +150,14 @@ in
         #",XF86AudioPrev,exec,playerctl previous"
         ", XF86MonBrightnessUp, exec, brightnessctl -s set +5%"
         ", XF86MonBrightnessDown, exec, brightnessctl -s set 5%-"
-        "$mainMod SHIFT, left, movewindow, l"
-        "$mainMod SHIFT, right, movewindow, r"
-        "$mainMod SHIFT, up, movewindow, u"
-        "$mainMod SHIFT, down, movewindow, d"
+        "$mainMod SHIFT, h, movewindow, l"
+        "$mainMod SHIFT, l, movewindow, r"
+        "$mainMod SHIFT, k, movewindow, u"
+        "$mainMod SHIFT, j, movewindow, d"
+
+        
+        # Motions that use ALT as the mod key
+        "ALT, L, exec, hyprlock" # lock the PC
       ];
 
       bindm = [
