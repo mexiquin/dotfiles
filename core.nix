@@ -157,6 +157,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     gh
+    ranger
     remmina
     rclone
     meld
@@ -206,7 +207,7 @@
 
   home-manager = {
     backupFileExtension = "backup";
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users = {
       "quinton" = import ./home.nix;
     };
@@ -241,6 +242,15 @@
     settings = {
       vim = {
 
+        options = {
+          tabstop = 2;
+           shiftwidth = 0;
+           expandtab = true;
+          autoindent = true;
+        };
+
+        utility.sleuth.enable = true;
+
         viAlias = true;
         vimAlias = true;
         theme.enable = true;
@@ -254,12 +264,13 @@
         autocomplete.nvim-cmp.enable = true;
         lsp.enable = true;
 
+
         terminal.toggleterm = {
           enable = true;
           lazygit.enable = true;
-          
+
         };
-        
+
         languages = {
           enableTreesitter = true;
 
