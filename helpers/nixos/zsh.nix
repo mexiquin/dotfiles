@@ -13,6 +13,7 @@
     shellAliases = {
       sudo = "sudo ";
       lgit = "lazygit";
+      waybar-restart = "pkill waybar && hyprctl dispatch exec waybar";
     };
     
     loginShellInit = ''
