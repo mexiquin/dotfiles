@@ -108,6 +108,8 @@ in
         "$mainMod, F, fullscreen, 1"
         "$mainMod, V, togglefloating,"
         "$mainMod SHIFT, E, exec, rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/reboot/suspend'"
+
+        "$mainMod, B, exec, firefox"
         
         ",Print, exec, grim -g \"\$(slurp)\""
 
