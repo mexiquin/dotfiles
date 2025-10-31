@@ -17,7 +17,7 @@
       character.success_symbol = "[\\$](bold)";
       character.error_symbol = "[\\$](bold red)";
 
-      git_branch.format = "on [$branch(:$remote_branch)]($style)";
+      git_branch.format = "on [$branch(:$remote_branch)]($style) ";
       git_branch.style = "bold green";
     };
   };
