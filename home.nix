@@ -15,6 +15,7 @@
     ./home-manager/hyprlock.nix
     ./home-manager/hypridle.nix
     ./home-manager/btop.nix
+    ./home-manager/starship.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
@@ -51,18 +52,4 @@
       };
     };
   };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    shellAliases = {
-      sudo = "sudo ";
-    };
-    profileExtra = ''
-      if uwsm check may-start; then
-        exec uwsm start hyprland-uwsm.desktop
-      fi
-    '';
-  };
-
 }

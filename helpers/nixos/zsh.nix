@@ -7,7 +7,7 @@
     syntaxHighlighting.enable = true;
     
     promptInit = ''
-      PROMPT="%B%F{green}[%n@%m in %2d] $ %f%b"
+      eval "$(starship init zsh)"
     '';
   
     shellAliases = {

@@ -105,6 +105,7 @@
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
     TERMINAL = "kitty";
+    EDITOR = "nvim";
   };
 
   # Select internationalisation properties.
@@ -149,6 +150,9 @@
     ];
     shell = pkgs.zsh;
   };
+
+  # prevent new user dialog for zsh
+  system.userActivationScripts.zshrc = "touch .zshrc";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
