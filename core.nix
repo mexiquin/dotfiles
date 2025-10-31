@@ -170,6 +170,7 @@
     nicotine-plus
     libreoffice-fresh
     lazygit
+    lazydocker
     man-pages
     vlc
     firefox
@@ -207,7 +208,10 @@
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
   };
-  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   home-manager = {
     backupFileExtension = "backup";
