@@ -32,6 +32,7 @@
   services.xserver.enable = true;
   services.xserver.displayManager.startx.enable = true;
 
+
   #enable polkit
   security.polkit.enable = true;
 

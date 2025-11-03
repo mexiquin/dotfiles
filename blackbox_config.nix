@@ -8,4 +8,12 @@
   ];
 
   networking.hostName = "blackbox"; # Define your hostname.
+
+  # Ollama service for blackbox only (since its got the GPU and stuff)
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+  };
+
+  services.open-webui.enable = true;
 }
