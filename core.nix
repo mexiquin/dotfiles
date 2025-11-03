@@ -265,10 +265,14 @@
 
         viAlias = true;
         vimAlias = true;
-        theme.enable = true;
-        theme.name = "gruvbox";
-        theme.style = "dark";
-        theme.transparent = true;
+
+        theme = {
+          enable = true;
+          name = "gruvbox";
+          style = "dark";
+          transparent = true;
+        };
+
         lineNumberMode = "number";
 
         statusline.lualine.enable = true;
