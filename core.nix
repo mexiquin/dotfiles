@@ -250,6 +250,10 @@
     settings = {
       vim = {
 
+        binds = {
+          whichKey.enable = true;
+        };
+
         options = {
           tabstop = 2;
            shiftwidth = 0;
