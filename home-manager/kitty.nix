@@ -11,5 +11,6 @@
     themeFile = "GruvboxMaterialDarkHard";
     font.package = pkgs.nerd-fonts.fira-code;
     font.name = "Fira Code Medium";
+    font.size = 12;
   }; 
 }
