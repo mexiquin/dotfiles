@@ -13,6 +13,9 @@
     options = "--delete-older-than 30d";
   };
 
+  # increase download buffer size to 500MB for rebuilds
+  nix.settings.download-buffer-size = 524288000;
+
   # Use grub to enable detection of windows installs (if needed)
   boot = {
     supportedFilesystems = [ "ntfs" ];
