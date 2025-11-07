@@ -110,6 +110,7 @@ in
         "$mainMod SHIFT, E, exec, rofi -show menu -modi 'menu:rofi-power-menu --choices=shutdown/reboot/suspend'"
 
         "$mainMod, B, exec, firefox"
+        "$mainMod, A, exec, xdg-open http://localhost:8080"
         
         ",Print, exec, grim -g \"\$(slurp)\""
 
