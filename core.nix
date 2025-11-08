@@ -143,6 +143,10 @@
     eddie
   ];
 
+  programs.firefox.preferences = {
+    "widget.gtk.libadwaita-colors.enabled" = false;
+  };
+
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
