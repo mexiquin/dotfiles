@@ -13,6 +13,10 @@
     options = "--delete-older-than 30d";
   };
 
+  # enable COSMIC
+  services.displayManager.cosmic-greeter.enable = true;
+  services.desktopManager.cosmic.enable = true;
+
   # increase download buffer size to 500MB for rebuilds
   nix.settings.download-buffer-size = 524288000;
 
@@ -26,31 +30,6 @@
         device = "nodev";
         useOSProber = true;
         efiSupport = true;
-      };
-    };
-  };
-
-  services.getty.autologinUser = "quinton";
-
-  services.xserver.enable = true;
-  services.xserver.displayManager.startx.enable = true;
-
-
-  #enable polkit
-  security.polkit.enable = true;
-
-  systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
       };
     };
   };
@@ -88,29 +67,6 @@
     font-awesome
     google-fonts
   ];
-
-  # enable hyprland
-  programs.hyprland = {
-    enable = true;
-    #withUWSM = true;
-    xwayland.enable = true;
-  };
-
-  # enable use of thunar for files
-  programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-archive-plugin
-    thunar-volman
-  ];
-  programs.xfconf.enable = true;
-
-  security.pam.services.hyprlock = { };
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-    TERMINAL = "kitty";
-    EDITOR = "nvim";
-  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -164,10 +120,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    gh
-    ranger
     remmina
-    rclone
     meld
     chromium
     foliate
@@ -185,22 +138,8 @@
     tree
     git
     openconnect
-    mc
-    imv
-    grim
-    slurp
-    libnotify
-    dconf
     fastfetch
-    dunst
-    brightnessctl
-    networkmanagerapplet
-    kitty
-    xdg-desktop-portal-gtk
     nil
-    nwg-displays
-    pavucontrol
-    rofi-power-menu
     eddie
   ];
 
@@ -230,11 +169,6 @@
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 2234 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
-  services.devmon.enable = true;
-  services.tumbler.enable = true;
 
   # add flake features
   nix.settings.experimental-features = [
