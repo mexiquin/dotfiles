@@ -55,12 +55,6 @@
 
   hardware.bluetooth.enable = true;
   services.libinput.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  hardware.bluetooth.settings = {
-    General = {
-      Enable = "Source,Sink,Media,Socket";
-    };
-  };
 
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
