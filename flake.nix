@@ -35,7 +35,7 @@
         nuc = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
-            ./Modules/nuc_configuration.nix
+            ./modules/nuc_configuration.nix
             inputs.nvf.nixosModules.default
             inputs.home-manager.nixosModules.default
           ];
@@ -44,7 +44,7 @@
         lilbuddy = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
-            ./Modules/lilbuddy_config.nix
+            ./modules/lilbuddy_config.nix
             inputs.nvf.nixosModules.default
             inputs.home-manager.nixosModules.default
           ];
@@ -53,7 +53,7 @@
         blackbox = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
-            ./Modules/blackbox_config.nix
+            ./modules/blackbox_config.nix
             inputs.nvf.nixosModules.default
             inputs.home-manager.nixosModules.default
           ];
