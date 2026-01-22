@@ -231,11 +231,11 @@
     };
   };
 
-  services.ollama = {
-    enable = true;
-  };
+  #services.ollama = {
+  #  enable = true;
+ # };
 
-  services.open-webui.enable = true;
+  #services.open-webui.enable = true;
 
   system.stateVersion = "23.11";
 }

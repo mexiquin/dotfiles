@@ -63,6 +63,15 @@
             inputs.home-manager.nixosModules.default
           ];
         };
+
+	captainbapple = nixpkgs.lib.nixosSystem {
+	  specialArgs = { inherit inputs; };
+	  modules = [
+	    ./captainBapple_configuration.nix
+	    inputs.nvf.nixosModules.default
+	    inputs.home-manager.nixosModules.default
+	  ];
+	};
       };
     };
 }
