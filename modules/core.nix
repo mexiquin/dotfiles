@@ -124,7 +124,7 @@
     lazydocker
     man-pages
     vlc
-    firefox
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     unzip
     wget
     htop
@@ -136,10 +136,6 @@
     nil
     eddie
   ];
-
-  programs.firefox.preferences = {
-    "widget.gtk.libadwaita-colors.enabled" = false;
-  };
 
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
@@ -158,7 +154,7 @@
     backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "quinton" = import ./home.nix;
+      "quinton" = import ./home-manager/home.nix;
     };
   };
 
@@ -204,8 +200,6 @@
 
         theme = {
           enable = true;
-          name = "gruvbox";
-          style = "dark";
           transparent = true;
         };
 

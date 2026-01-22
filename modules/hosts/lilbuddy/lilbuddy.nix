@@ -3,8 +3,8 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    ./core.nix
-    ./helpers/hardware-configs/lilbuddy-hardware-config.nix
+    ../../core.nix
+    ./hardware-configuration.nix
   ];
 
   # Set hostname

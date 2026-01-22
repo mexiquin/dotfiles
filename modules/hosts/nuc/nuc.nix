@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./core.nix
-    ./helpers/hardware-configs/nuc-hardware-config.nix
+    ../../core.nix
+    ./hardware-configuration.nix
   ];
 
   # Set hostname
