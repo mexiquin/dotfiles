@@ -13,10 +13,6 @@
     options = "--delete-older-than 30d";
   };
 
-  # enable COSMIC
-  services.displayManager.cosmic-greeter.enable = true;
-  services.desktopManager.cosmic.enable = true;
-
   # increase download buffer size to 500MB for rebuilds
   nix.settings.download-buffer-size = 524288000;
 
@@ -120,8 +116,6 @@
     foliate
     nicotine-plus
     libreoffice-fresh
-    lazygit
-    lazydocker
     man-pages
     vlc
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -132,8 +126,16 @@
     tree
     git
     openconnect
+    imv
+    libnotify
     fastfetch
+    brightnessctl
+    networkmanagerapplet
+    alacritty
+    xdg-desktop-portal-gtk
     nil
+    nwg-displays
+    pavucontrol
     eddie
   ];
 
