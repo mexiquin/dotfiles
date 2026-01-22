@@ -3,7 +3,7 @@
 {
   imports = [
     ./core.nix
-    ./helpers/hardware-configs/captain-bapple-hardware-config.nix
+    ./hardware-configuration.nix
   ];
 
   # Set hostname
