@@ -3,18 +3,18 @@
 
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    # ./wlsunset.nix
-    # ./rofi.nix
+    ./wlsunset.nix
+    ./rofi.nix
     ./git.nix
-    # ./waybar.nix
-    #./hyprland.nix
-    #./dunst.nix
-    #./theming-gtk.nix
-    #./kitty.nix
-    #./hyprpaper.nix
-    #./hyprlock.nix
-    #./hypridle.nix
-    #./btop.nix
+    ./waybar.nix
+    ./hyprland.nix
+    ./dunst.nix
+    ./theming-gtk.nix
+    ./kitty.nix
+    ./hyprpaper.nix
+    ./hyprlock.nix
+    ./hypridle.nix
+    ./btop.nix
     ./starship.nix
   ];
 

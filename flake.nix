@@ -67,7 +67,7 @@
 	captainbapple = nixpkgs.lib.nixosSystem {
 	  specialArgs = { inherit inputs; };
 	  modules = [
-	    ./captainBapple_configuration.nix
+	    ./modules/hosts/captainBapple/captainBapple.nix
 	    inputs.nvf.nixosModules.default
 	    inputs.home-manager.nixosModules.default
 	  ];
