@@ -6,6 +6,7 @@
     ./git.nix
     ./btop.nix
     ./starship.nix
+    ./niri/niri.nix
   ];
 
   home.username = "quinton";

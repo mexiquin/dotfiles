@@ -6,6 +6,10 @@
     inputs.home-manager.nixosModules.default
   ];
 
+  programs.niri = {
+    enable = true;
+  };
+
   # auto storage optimization
   nix.optimise.automatic = true;
   nix.gc = {
