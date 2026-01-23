@@ -2,7 +2,6 @@
 {
   imports = [
     ./helpers/nixos/zsh.nix
-    ./helpers/nixos/niri/niri.nix
     inputs.home-manager.nixosModules.default
   ];
 
