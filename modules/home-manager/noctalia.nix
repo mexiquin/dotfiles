@@ -510,11 +510,11 @@
           wifiDetailsViewMode = "grid";
         };
         wallpaper = {
-          directory = "/home/quinton/Pictures/Wallpapers";
+          directory = "${inputs.wallpapers}";
           enableMultiMonitorDirectories = false;
           enabled = true;
           fillColor = "#000000";
-          fillMode = "center";
+          fillMode = "fill";
           hideWallpaperFilenames = false;
           monitorDirectories = [];
           overviewEnabled = true;

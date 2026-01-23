@@ -5,11 +5,13 @@
     inputs.home-manager.nixosModules.default
   ];
 
-  # enable sddm 
+  # enable sddm
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "${pkgs.where-is-my-sddm-theme.override { variants = [ "qt5" ]; }}/share/sddm/themes/where_is_my_sddm_theme_qt5";
+    theme = "${
+      pkgs.where-is-my-sddm-theme.override { variants = [ "qt5" ]; }
+    }/share/sddm/themes/where_is_my_sddm_theme_qt5";
   };
 
   programs.niri = {
@@ -53,6 +55,10 @@
       networkmanager-openconnect
     ];
   };
+
+  # enable power-profiles
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Phoenix";
@@ -145,9 +151,11 @@
     alacritty
     xdg-desktop-portal-gtk
     nil
+    nixfmt
     nwg-displays
     pavucontrol
     eddie
+    antigravity
   ];
 
   services.flatpak.enable = true;
@@ -201,8 +209,8 @@
 
         options = {
           tabstop = 2;
-           shiftwidth = 0;
-           expandtab = true;
+          shiftwidth = 0;
+          expandtab = true;
           autoindent = true;
         };
 
@@ -222,7 +230,6 @@
         telescope.enable = true;
         autocomplete.nvim-cmp.enable = true;
         lsp.enable = true;
-
 
         terminal.toggleterm = {
           enable = true;
@@ -246,7 +253,7 @@
 
   #services.ollama = {
   #  enable = true;
- # };
+  # };
 
   #services.open-webui.enable = true;
 
