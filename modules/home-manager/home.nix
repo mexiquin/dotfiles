@@ -9,6 +9,7 @@
     ./niri/niri.nix
     ./alacritty/alacritty.nix
     ./theming-gtk.nix
+    ./theming-qt.nix
   ];
 
   home.username = "quinton";

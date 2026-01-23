@@ -14,13 +14,12 @@
     enable = true;
     iconTheme = {
       package = pkgs.tela-icon-theme;
-      name = "Tela-circle-dark";
+      name = "Tela-dark";
     };
 
     theme = {
       package = pkgs.adw-gtk3;
       name = "adw-gtk3-dark";
     };
-
   };
 }
