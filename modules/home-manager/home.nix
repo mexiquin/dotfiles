@@ -7,6 +7,7 @@
     ./btop.nix
     ./starship.nix
     ./niri/niri.nix
+    ./alacritty/alacritty.nix
   ];
 
   home.username = "quinton";
