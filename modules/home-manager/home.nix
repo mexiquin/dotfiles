@@ -2,23 +2,11 @@
 {
 
   imports = [
-    inputs.nix-colors.homeManagerModules.default
-    ./wlsunset.nix
-    ./rofi.nix
+    ./noctalia.nix
     ./git.nix
-    ./waybar.nix
-    ./hyprland.nix
-    ./dunst.nix
-    ./theming-gtk.nix
-    ./kitty.nix
-    ./hyprpaper.nix
-    ./hyprlock.nix
-    ./hypridle.nix
     ./btop.nix
     ./starship.nix
   ];
-
-  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-hard;
 
   home.username = "quinton";
   home.homeDirectory = "/home/quinton";
