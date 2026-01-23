@@ -1,17 +1,4 @@
 { pkgs, ... }:
-let
-  themePkg = pkgs.colloid-gtk-theme.override {
-    colorVariants = [ "dark" ];
-    sizeVariants = [ "standard" ];
-    themeVariants = [ "orange" ];
-    tweaks = [ "gruvbox" ];
-  };
-
-  iconPkg = pkgs.colloid-icon-theme.override {
-    schemeVariants = [ "gruvbox" ];
-    colorVariants = [ "orange" ];
-  };
-in
 {
 
   # ====== cursor theme config ======
@@ -26,13 +13,13 @@ in
   gtk = {
     enable = true;
     iconTheme = {
-      package = iconPkg;
-      name = "Colloid-Orange-Gruvbox-Dark";
+      package = pkgs.tela-icon-theme;
+      name = "Tela-circle-dark";
     };
 
     theme = {
-      package = themePkg;
-      name = "Colloid-Orange-Dark-Gruvbox";
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3-dark";
     };
 
   };

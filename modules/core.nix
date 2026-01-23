@@ -155,6 +155,8 @@
     nwg-displays
     pavucontrol
     eddie
+    pcmanfm
+    adw-gtk3
     antigravity
   ];
 

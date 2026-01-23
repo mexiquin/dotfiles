@@ -8,6 +8,7 @@
     ./starship.nix
     ./niri/niri.nix
     ./alacritty/alacritty.nix
+    ./theming-gtk.nix
   ];
 
   home.username = "quinton";
