@@ -167,9 +167,8 @@
                 colorizeSystemIcon = "none";
                 customIconPath = "";
                 enableColorization = false;
-                icon = "noctalia";
                 id = "ControlCenter";
-                useDistroLogo = false;
+                useDistroLogo = true;
               }
             ];
           };
