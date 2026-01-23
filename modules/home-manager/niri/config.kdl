@@ -38,6 +38,11 @@ output "HTMI-A-1" {
     position x=1920 y=0
 }
 
+output "Apple Computer Inc Color LCD Unknown" {
+    mode "2880x1800@59.990"
+    scale 2
+}
+
 // Set the overview wallpaper on the backdrop.
 layer-rule {
   match namespace="^noctalia-overview*"
@@ -52,8 +57,8 @@ binds {
 
     // ─── Applications ───
     MOD+RETURN                          hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "alacritty"; }
-    MOD+D                               hotkey-overlay-title="Open App Launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    MOD+B                               hotkey-overlay-title="Open Browser: Zen" { spawn-sh "zen-browser"; }
+    MOD+D                               hotkey-overlay-title="Open App Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    MOD+B                               hotkey-overlay-title="Open Browser: Zen" { spawn-sh "zen"; }
 
     // File manager
     MOD+E				hotkey-overlay-title="File Manager" { spawn-sh "pcmanfm"; } 
@@ -169,7 +174,7 @@ binds {
     MOD+SHIFT+ESCAPE                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // ─── Exit / Power ───
-    MOD+SHIFT+E				hotkey-overlay-title="Session Menu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    MOD+SHIFT+E				hotkey-overlay-title="Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
 }
 
 // ────────────── Startup Applications ──────────────
@@ -177,7 +182,7 @@ binds {
 
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
     spawn-sh-at-startup "nm-applet"
-    spawn-at-startup "qs" "-c" "noctalia-shell"
+    spawn-at-startup "noctalia-shell"
 
     prefer-no-csd // Disable program decorations
     screenshot-path null // Disable screenshot saving
@@ -282,4 +287,4 @@ debug {
   honor-xdg-activation-with-invalid-serial
 }
 
-include "./noctalia.kdl"
+//include "./noctalia.kdl"
