@@ -3,7 +3,7 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    ../../core.nix
+    ../../nixos
     ./hardware-configuration.nix
   ];
 
