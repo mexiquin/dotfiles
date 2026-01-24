@@ -8,12 +8,12 @@
     
     promptInit = ''
       eval "$(starship init zsh)"
+      autoload -Uz compinit && compinit
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
     '';
   
     shellAliases = {
-      sudo = "sudo ";
-      lgit = "lazygit";
-      ldocker = "lazydocker";
+      # leaving this blank for now
     };
   };
 }
