@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 
 {
   imports = [
@@ -305,7 +305,7 @@
         allowPanelsOnScreenWithoutBar = true;
         animationDisabled = false;
         animationSpeed = 1;
-        avatarImage = "/home/quinton/Pictures/Wallpapers/que_pasa.jpeg";
+        avatarImage = "${config.home.homeDirectory}/Pictures/que_pasa.jpeg";
         boxRadiusRatio = 1;
         compactLockScreen = false;
         dimmerOpacity = 0.2;

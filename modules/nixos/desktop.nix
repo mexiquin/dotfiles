@@ -3,10 +3,18 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "${
-      pkgs.where-is-my-sddm-theme.override { variants = [ "qt5" ]; }
-    }/share/sddm/themes/where_is_my_sddm_theme_qt5";
+    theme = "sddm-astronaut-theme";
+    package = pkgs.kdePackages.sddm;
+    extraPackages = with pkgs; [
+      kdePackages.qtmultimedia
+      kdePackages.qtsvg
+      kdePackages.qtvirtualkeyboard
+    ];
   };
+
+  environment.systemPackages = with pkgs; [
+    sddm-astronaut
+  ];
 
   programs.niri = {
     enable = true;
