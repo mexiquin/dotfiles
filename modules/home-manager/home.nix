@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
 
   imports = [
@@ -17,7 +17,8 @@
 
   home.stateVersion = "23.05";
 
-  home.packages = [
+  home.packages = with pkgs; [
+    xwayland-satellite
   ];
 
   home.file = {
