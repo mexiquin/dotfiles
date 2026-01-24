@@ -129,6 +129,8 @@
   environment.systemPackages = with pkgs; [
     remmina
     meld
+    qt6Packages.qt6ct
+    nwg-look
     chromium
     foliate
     nicotine-plus
