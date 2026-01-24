@@ -37,6 +37,7 @@
     pcmanfm
     adw-gtk3
     antigravity
+    vesktop
   ];
 
   services.flatpak.enable = true;
