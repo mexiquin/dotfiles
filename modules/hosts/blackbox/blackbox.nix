@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ../../core.nix
+    ../../nixos
     ./hardware-configuration.nix
-    ../../helpers/nixos/nvidia.nix
+    ../../nixos/hardware/nvidia.nix
   ];
 
   networking.hostName = "blackbox"; # Define your hostname.
