@@ -6,7 +6,7 @@ This repository contains my personal NixOS configuration using Flakes.
 
 This flake provides configurations for the following hosts:
 
-- **nuc**: Intel NUC (Primary Desktop/Server)
+- **nuc**: Intel NUC (Media Center/Desktop)
 - **lilbuddy**: Portable setup
 - **blackbox**: Secondary workstation
 - **CaptainBapple**: MacBook Pro 11,4 (NixOS on Mac)
