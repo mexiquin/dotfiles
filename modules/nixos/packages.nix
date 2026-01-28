@@ -6,8 +6,6 @@
   environment.systemPackages = with pkgs; [
     remmina
     meld
-    qt6Packages.qt6ct
-    nwg-look
     chromium
     foliate
     nicotine-plus
@@ -22,20 +20,12 @@
     tree
     git
     openconnect
-    imv
     libnotify
     fastfetch
     brightnessctl
-    networkmanagerapplet
-    alacritty
-    xdg-desktop-portal-gtk
     nil
     nixfmt
-    nwg-displays
-    pavucontrol
     eddie
-    pcmanfm
-    adw-gtk3
     antigravity
     vesktop
   ];

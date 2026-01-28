@@ -6,10 +6,6 @@
     ./git.nix
     ./btop.nix
     ./starship.nix
-    ./niri/niri.nix
-    ./alacritty/alacritty.nix
-    ./theming-gtk.nix
-    ./theming-qt.nix
   ];
 
   home.username = "quinton";
@@ -18,7 +14,6 @@
   home.stateVersion = "23.05";
 
   home.packages = with pkgs; [
-    xwayland-satellite
   ];
 
   home.file = {

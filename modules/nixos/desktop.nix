@@ -3,20 +3,10 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "sddm-astronaut-theme";
     package = pkgs.kdePackages.sddm;
-    extraPackages = with pkgs; [
-      kdePackages.qtmultimedia
-      kdePackages.qtsvg
-      kdePackages.qtvirtualkeyboard
-    ];
   };
 
-  environment.systemPackages = with pkgs; [
-    sddm-astronaut
-  ];
-
-  programs.niri = {
+  services.desktopManager.plasma6 = {
     enable = true;
   };
 
