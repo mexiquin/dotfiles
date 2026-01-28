@@ -19,18 +19,13 @@
       url = "github:NotAShelf/nvf/v0.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Cosmic
-    cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
     {
       self,
       nixpkgs,
+      nvf,
       ...
     }@inputs:
 
@@ -43,7 +38,6 @@
             ./modules/hosts/nuc/nuc.nix
             inputs.nvf.nixosModules.default
             inputs.home-manager.nixosModules.default
-            inputs.cosmic.nixosModules.default
           ];
         };
 
@@ -53,7 +47,6 @@
             ./modules/hosts/lilbuddy/lilbuddy.nix
             inputs.nvf.nixosModules.default
             inputs.home-manager.nixosModules.default
-            inputs.cosmic.nixosModules.default
           ];
         };
 
@@ -63,7 +56,6 @@
             ./modules/hosts/blackbox/blackbox.nix
             inputs.nvf.nixosModules.default
             inputs.home-manager.nixosModules.default
-            inputs.cosmic.nixosModules.default
           ];
         };
       };
