@@ -2,7 +2,6 @@
 {
 
   imports = [
-    ./noctalia.nix
     ./git.nix
     ./btop.nix
     ./starship.nix
