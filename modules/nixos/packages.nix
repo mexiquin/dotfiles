@@ -38,6 +38,7 @@
     adw-gtk3
     antigravity
     vesktop
+    opencode
   ];
 
   services.flatpak.enable = true;

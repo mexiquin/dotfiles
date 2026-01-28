@@ -20,11 +20,6 @@
       flake = false;
     };
 
-    nvf = {
-      url = "github:NotAShelf/nvf/v0.8";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +31,6 @@
       self,
       nixpkgs,
       nixos-hardware,
-      nvf,
       ...
     }@inputs:
 
@@ -47,7 +41,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./modules/hosts/nuc/nuc.nix
-            inputs.nvf.nixosModules.default
             inputs.home-manager.nixosModules.default
           ];
         };
@@ -56,7 +49,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./modules/hosts/lilbuddy/lilbuddy.nix
-            inputs.nvf.nixosModules.default
             inputs.home-manager.nixosModules.default
           ];
         };
@@ -65,20 +57,18 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./modules/hosts/blackbox/blackbox.nix
-            inputs.nvf.nixosModules.default
             inputs.home-manager.nixosModules.default
           ];
         };
 
-	CaptainBapple = nixpkgs.lib.nixosSystem {
-	  specialArgs = { inherit inputs; };
-	  modules = [
-	    ./modules/hosts/captainBapple/captainBapple.nix
-	    inputs.nvf.nixosModules.default
-	    inputs.home-manager.nixosModules.default
-      nixos-hardware.nixosModules.apple-macbook-pro-11-4
-	  ];
-	};
+        CaptainBapple = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./modules/hosts/captainBapple/captainBapple.nix
+            inputs.home-manager.nixosModules.default
+            nixos-hardware.nixosModules.apple-macbook-pro-11-4
+          ];
+        };
       };
     };
 }

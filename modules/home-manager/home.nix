@@ -10,6 +10,7 @@
     ./alacritty/alacritty.nix
     ./theming-gtk.nix
     ./theming-qt.nix
+    ./neovim.nix
   ];
 
   home.username = "quinton";

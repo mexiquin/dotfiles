@@ -27,7 +27,7 @@ This flake provides configurations for the following hosts:
 - **Antigravity**: AI Agentic Assistant
 
 ### Development & Tools
-- **NVF**: Neovim configuration (configured for Nix, Python, Rust, TypeScript, HTML/CSS)
+- **Neovim**: Editor configured via home-manager (LSP, Treesitter, Telescope, nvim-cmp)
 - **Git**: Version control
 - **Tmux**: Terminal multiplexer
 - **Htop / Btop**: System resource monitors
@@ -42,7 +42,6 @@ The configuration leverages the following key inputs:
 - **home-manager**: Managing user environment
 - **nixos-hardware**: Hardware-specific configurations (e.g., for Macbooks)
 - **noctalia**: Custom helper library/shell
-- **nvf**: Neovim Flake configuration
 - **wallpapers**: External wallpaper collection
 - **zen-browser**: Flake for Zen Browser
 
