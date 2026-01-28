@@ -10,11 +10,6 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     wallpapers = {
       url = "git+https://codeberg.org/exorcist/wallpapers.git";
       flake = false;

@@ -10,13 +10,8 @@
       "kvm"
       "libvirtd"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
-
-  # prevent new user dialog for zsh
-  system.userActivationScripts.zshrc = "touch .zshrc";
-
-  services.gnome.gnome-keyring.enable = true;
 
   # enable pwfeedback
   security.sudo.extraConfig = ''

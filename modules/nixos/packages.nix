@@ -38,8 +38,4 @@
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
   };
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
 }
