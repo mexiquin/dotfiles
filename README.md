@@ -1,12 +1,21 @@
-# Quinton's Dotfiles
+# Quinton's Dotfiles (Plasma Branch)
 
-This repository contains my personal NixOS configuration using Flakes.
+This branch contains a migration of my personal NixOS configuration from Niri to **KDE Plasma 6**.
+
+## Branch Differences
+
+This branch (`plasma`) differs from the `main` branch in the following ways:
+
+- **Desktop Environment**: Uses **KDE Plasma 6** instead of the Niri tiling compositor.
+- **Simplified Configuration**: Removed **Noctalia**, Niri-specific tools (`nwg-look`, `nwg-displays`), and Alacritty.
+- **Theming**: Leveraging Plasma's native system-wide theming for both Qt and GTK applications, removing the need for manual `qt6ct` or `nwg-look` management.
+- **Cleaned Up Dependencies**: Removed redundant applications like `imv`, `pavucontrol`, and `pcmanfm` in favor of Plasma's integrated alternatives (Gwenview, Plasma Audio/Network widgets, Dolphin).
 
 ## Hosts
 
 This flake provides configurations for the following hosts:
 
-- **nuc**: Intel NUC (Media Center/Desktop)
+- **nuc**: Intel NUC (Media Center/Desktop) - *includes FreeTube*
 - **lilbuddy**: Portable setup
 - **blackbox**: Secondary workstation
 - **CaptainBapple**: MacBook Pro 11,4 (NixOS on Mac)
@@ -14,21 +23,22 @@ This flake provides configurations for the following hosts:
 ## Major Applications
 
 ### Core & Desktop
-- **Niri**: Tiling Wayland compositor
+- **KDE Plasma 6**: Modern, feature-rich desktop environment
 - **Zen Browser**: Primary web browser
 - **Chromium**: Secondary web browser
-- **Alacritty**: GPU-accelerated terminal emulator
+- **Konsole / Yakuake**: KDE terminal emulators
+- **Dolphin**: Advanced file manager
 - **LibreOffice**: Office suite
 - **VLC**: Media player
 - **Remmina**: Remote desktop client
 - **Foliate**: E-book reader
 - **Nicotine+**: Soulseek client
-- **PCManFM**: File manager
 - **Antigravity**: AI Agentic Assistant
 
 ### Development & Tools
 - **NVF**: Neovim configuration (configured for Nix, Python, Rust, TypeScript, HTML/CSS)
 - **Git**: Version control
+- **Fish Shell**: Modern, user-friendly command-line shell
 - **Tmux**: Terminal multiplexer
 - **Htop / Btop**: System resource monitors
 - **Fastfetch**: System information fetcher
@@ -41,10 +51,6 @@ The configuration leverages the following key inputs:
 - **nixpkgs**: `nixos-unstable` branch
 - **home-manager**: Managing user environment
 - **nixos-hardware**: Hardware-specific configurations (e.g., for Macbooks)
-- **noctalia**: Custom helper library/shell
 - **nvf**: Neovim Flake configuration
 - **wallpapers**: External wallpaper collection
 - **zen-browser**: Flake for Zen Browser
-
-## Using Noctalia theming
-In order to use noctalia theming with QT applications, you must set values from within qt6ct. GTK theming is not functioning as of yet. Icons must also be set within both qt6ct and nwg-look.
