@@ -15,4 +15,8 @@
       GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=2";
     };
   };
+
+  # List packages installed in system profile for this host only.
+  environment.systemPackages = with pkgs; [
+  ];
 }

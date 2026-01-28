@@ -9,4 +9,8 @@
 
   # Set hostname
   networking.hostName = "lilbuddy";
+
+  # List packages installed in system profile for this host only.
+  environment.systemPackages = with pkgs; [
+  ];
 }

@@ -1,17 +1,12 @@
 { ... }:
 {
-  programs.zsh = {
+  programs.fish = {
     enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    
-    promptInit = ''
-      eval "$(starship init zsh)"
-      autoload -Uz compinit && compinit
-      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+    interactiveShellInit = ''
+      set -g fish_greeting ""
+      starship init fish | source
     '';
-  
+
     shellAliases = {
       # leaving this blank for now
     };
