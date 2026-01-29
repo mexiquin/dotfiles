@@ -46,4 +46,4 @@ The configuration leverages the following key inputs:
 - **zen-browser**: Flake for Zen Browser
 
 ## Using Noctalia theming
-In order to use noctalia theming with QT applications, you must set values from within qt6ct. GTK theming is not functioning as of yet. Icons must also be set within both qt6ct and nwg-look.
+In order to use noctalia theming with QT applications, you must set values from within qt6ct. Icons must also be set within both qt6ct and nwg-look.
