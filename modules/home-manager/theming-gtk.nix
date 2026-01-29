@@ -2,17 +2,22 @@
 {
 
   # ====== cursor theme config ======
+  home.pointerCursor = {
+    package = pkgs.quintom-cursor-theme;
+    gtk.enable = true;
+    name = "Quintom_Ink";
+    size = 24;
+
+  };
+
   gtk = {
     enable = true;
+
+    colorScheme = "dark";
+
     iconTheme = {
       package = pkgs.tela-icon-theme;
-      name = "Tela-dark";
-    };
-
-    cursorTheme = {
-      package = pkgs.quintom-cursor-theme;
-      name = "Quintom_Ink";
-      size = 16;
+      name = "Tela-yellow-dark";
     };
 
     theme = {
