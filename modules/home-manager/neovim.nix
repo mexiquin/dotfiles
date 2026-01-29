@@ -21,6 +21,7 @@
       # Statusline
       lualine-nvim
       nvim-web-devicons
+      nvim-tree-lua
 
       # Fuzzy finder
       telescope-nvim
@@ -107,6 +108,25 @@
         { "<leader>c", group = "code" },
         { "<leader>r", group = "refactor" },
       })
+
+      -- nvim-tree setup (file explorer on the right)
+      -- Configure default side to 'right' so toggling opens on the right side
+      require('nvim-tree').setup({
+        view = {
+          side = 'right',
+          width = 30,
+        },
+        renderer = {
+          icons = {
+            glyphs = {
+              default = '',
+            },
+          },
+        },
+      })
+
+      -- Toggle nvim-tree with <C-n>
+      vim.keymap.set('n', '<C-n>', '<cmd>NvimTreeToggle<cr>', { desc = 'Toggle file explorer' })
 
       -- nvim-cmp setup
       local cmp = require('cmp')
