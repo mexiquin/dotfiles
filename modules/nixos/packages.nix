@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -13,7 +14,8 @@
     nicotine-plus
     libreoffice-fresh
     man-pages
-    vlc
+    mpv
+    yt-dlp
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     unzip
     wget
