@@ -7,7 +7,7 @@
     ./btop.nix
     ./starship.nix
     ./niri/niri.nix
-    ./alacritty/alacritty.nix
+    ./kitty.nix
     ./theming-gtk.nix
     ./theming-qt.nix
     ./neovim.nix

@@ -29,7 +29,7 @@
     fastfetch
     brightnessctl
     networkmanagerapplet
-    alacritty
+    kitty
     xdg-desktop-portal-gtk
     nil
     nixfmt

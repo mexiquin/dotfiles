@@ -26,7 +26,7 @@
         showCategories = true;
         showIconBackground = false;
         sortByMostUsed = true;
-        terminalCommand = "xterm -e";
+        terminalCommand = "kitty -e";
         useApp2Unit = false;
         viewMode = "list";
       };
@@ -466,7 +466,7 @@
         warningColor = "";
       };
       templates = {
-        alacritty = true;
+        alacritty = false;
         cava = false;
         code = false;
         discord = true;
@@ -479,7 +479,7 @@
         helix = false;
         hyprland = false;
         kcolorscheme = true;
-        kitty = false;
+        kitty = true;
         mango = false;
         niri = true;
         pywalfox = false;
