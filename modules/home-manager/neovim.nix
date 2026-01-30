@@ -69,7 +69,7 @@
       vim.opt.expandtab = true
       vim.opt.autoindent = true
       vim.opt.number = true
-      vim.opt.termguicolors = true
+      vim.opt.termguicolors = false
 
       -- Lualine setup
       require('lualine').setup({
