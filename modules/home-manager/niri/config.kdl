@@ -59,6 +59,7 @@ binds {
     MOD+RETURN                          hotkey-overlay-title="Open Terminal: kitty" { spawn-sh "kitty"; }
     MOD+D                               hotkey-overlay-title="Open App Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
     MOD+B                               hotkey-overlay-title="Open Browser: Zen" { spawn-sh "zen"; }
+    MOD+O                               { toggle-overview; }
 
     // File manager
     MOD+E				hotkey-overlay-title="File Manager" { spawn-sh "pcmanfm"; } 
