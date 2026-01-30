@@ -7,7 +7,7 @@
     size = 24;
   };
 
-  home.packages = with pkgs; [ pkgs.tela-icon-theme ];
+  home.packages = with pkgs; [ tela-icon-theme ];
 
   gtk = {
     enable = true;
