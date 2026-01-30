@@ -41,6 +41,7 @@
     antigravity
     vesktop
     opencode
+    bun
   ];
 
   services.flatpak.enable = true;
