@@ -11,6 +11,7 @@
     ./theming-gtk.nix
     ./theming-qt.nix
     ./neovim.nix
+    ./direnv.nix
   ];
 
   home.username = "quinton";
