@@ -61,6 +61,9 @@ binds {
     MOD+B                               hotkey-overlay-title="Open Browser: Zen" { spawn-sh "zen"; }
     MOD+O                               { toggle-overview; }
 
+    // Lock screen
+    ALT+L                               hotkey-overlay-title="Lock Screen" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
+
     // File manager
     MOD+E				hotkey-overlay-title="File Manager" { spawn-sh "pcmanfm"; } 
 
