@@ -1,19 +1,19 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # enable sddm
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "sddm-astronaut-theme";
+    theme = "where_is_my_sddm_theme";
     package = pkgs.kdePackages.sddm;
     extraPackages = with pkgs; [
-      kdePackages.qtmultimedia
+      kdePackages.qt5compat
       kdePackages.qtsvg
-      kdePackages.qtvirtualkeyboard
     ];
   };
 
   environment.systemPackages = with pkgs; [
-    sddm-astronaut
+    where-is-my-sddm-theme
   ];
 
   programs.niri = {
