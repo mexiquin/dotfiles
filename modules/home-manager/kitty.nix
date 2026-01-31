@@ -1,10 +1,13 @@
-{ inputs, pkgs, ... }:
+{ ... }:
 
 {
   programs.kitty = {
     enable = true;
 
     settings = {
+      # Disable window close confirmation
+      confirm_os_window_close = 0;
+
       # Font Configuration
       font_family = "FiraCode Nerd Font";
       font_size = "12.0";
