@@ -29,5 +29,6 @@
   fonts.packages = with pkgs; [
     font-awesome
     google-fonts
+    nerd-fonts.fira-code
   ];
 }

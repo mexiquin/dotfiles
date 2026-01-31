@@ -6,10 +6,7 @@
 
     settings = {
       # Font Configuration
-      font_family = "Fira Code";
-      bold_font = "Fira Code Bold";
-      italic_font = "Fira Code Italic";
-      bold_italic_font = "Fira Code Bold Italic";
+      font_family = "FiraCode Nerd Font";
       font_size = "12.0";
       disable_ligatures = "never"; # Enable ligatures for Fira Code
 
