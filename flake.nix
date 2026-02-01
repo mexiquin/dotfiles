@@ -70,10 +70,10 @@
           ];
         };
 
-        dellbox = nixpkgs.lib.nixosSystem {
+        XPSBoyo = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
-            ./modules/hosts/dellbox/dellbox.nix
+            ./modules/hosts/XPSBoyo/XPSBoyo.nix
             inputs.home-manager.nixosModules.default
           ];
         };
