@@ -69,6 +69,14 @@
             nixos-hardware.nixosModules.apple-macbook-pro-11-4
           ];
         };
+
+        dellbox = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./modules/hosts/dellbox/dellbox.nix
+            inputs.home-manager.nixosModules.default
+          ];
+        };
       };
     };
 }
