@@ -43,6 +43,11 @@ output "Apple Computer Inc Color LCD Unknown" {
     scale 2
 }
 
+output "Sharp Corporation 0x1517 Unknown" {
+  mode "3840x2400@59.994"
+  scale 2.5
+}
+
 // Set the overview wallpaper on the backdrop.
 layer-rule {
   match namespace="^noctalia-overview*"
