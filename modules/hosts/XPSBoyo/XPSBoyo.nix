@@ -4,7 +4,7 @@
   imports = [
     ../../nixos
     ./hardware-configuration.nix
-    ../../nixos/hardware/nvidia.nix
+    ../../nixos/hardware/nvidia-hybrid.nix
   ];
 
   networking.hostName = "XPSBoyo"; # Define your hostname.
