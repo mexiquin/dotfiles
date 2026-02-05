@@ -7,15 +7,17 @@
     size = 24;
   };
 
-  home.packages = with pkgs; [
-    tela-icon-theme
-    adw-gtk3
-  ];
+  home.packages = with pkgs; [ tela-icon-theme ];
 
   gtk = {
     enable = true;
 
     colorScheme = "dark";
+
+    theme = {
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3-dark";
+    };
 
     gtk3.extraCss = ''
       @import url("./noctalia.css");
