@@ -41,7 +41,6 @@
     antigravity
     vesktop
     opencode
-    zed-editor
   ];
 
   services.flatpak.enable = true;
