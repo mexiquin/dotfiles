@@ -38,9 +38,7 @@
     eddie
     pcmanfm
     adw-gtk3
-    antigravity
     vesktop
-    opencode
     github-copilot-cli
   ];
 
