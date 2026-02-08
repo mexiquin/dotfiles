@@ -41,6 +41,7 @@
     antigravity
     vesktop
     opencode
+    github-copilot-cli
   ];
 
   services.flatpak.enable = true;
