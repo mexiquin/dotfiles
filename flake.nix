@@ -24,6 +24,11 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nanocoder = {
+      url = "github:Nano-Collective/nanocoder";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
