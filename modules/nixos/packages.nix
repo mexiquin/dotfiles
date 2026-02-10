@@ -17,6 +17,7 @@
     mpv
     yt-dlp
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.nanocoder.packages.${pkgs.stdenv.hostPlatform.system}.default
     unzip
     wget
     htop
@@ -33,6 +34,7 @@
     xdg-desktop-portal-gtk
     nil
     nixfmt
+    nodejs
     nwg-displays
     pavucontrol
     eddie
